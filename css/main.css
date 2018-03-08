@@ -1,0 +1,121 @@
+html
+{
+	background: black;
+	width: 750px;
+	height: 1334px;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+head, body, div
+{
+	background: black;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.hidden
+{
+	display: none;
+}
+
+.invisible
+{
+	visibility: hidden;
+}
+
+.button
+{
+	position: absolute;
+}
+
+/*Calculated relative to the standard size - all buttons*/
+#P01_boton_info
+{
+	width: 227.76px;
+	height: 130.08px;
+	left: 543px;
+	top: 42px;
+}
+
+#P01_boton_iniciar
+{
+    width: 331.44px;
+    height: 131.28px;
+    left: 209px;
+    top: 1007px;
+}
+
+#P02_boton_saltar
+{
+    width: 156px;
+    height: 109.92px;
+    left: 1;
+    top: 1;
+}
+
+#P03_boton_jugar
+{
+    width: 321.6px;
+    height: 155.52px;
+    left: 222px;
+    top: 1060px;
+}
+
+#P04_boton_conteo_3
+{
+    width: 1;
+    height: 1;
+    left: 1;
+    top: 1;
+}
+
+#P05_boton_conteo_2
+{
+    width: 1;
+    height: 1;
+    left: 1;
+    top: 1;
+}
+
+#P06_boton_conteo_1
+{
+    width: 1;
+    height: 1;
+    left: 1;
+    top: 1;
+}
+
+#P07_boton_volver
+{
+    width: 238.08px;
+    height: 175.92px;
+    left: 260px;
+    top: 1087px;
+}
+
+#P07_boton_progreso
+{
+    width: 164.88px;
+    height: 108.72px;
+    left: 1px;
+    top: 1px;
+}
+
+#P08_boton_volver
+{
+    width: 238.08px;
+    height: 175.92px;
+    left: 261px;
+    top: 1086px;
+}
