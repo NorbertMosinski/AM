@@ -2,9 +2,11 @@
 var buttons = [];
 //holds all images of the html file
 var images = [];
-//videos
+//holds just the maze pictures of the html file
+var mazes = [];
+//holds all videos of the html file
 var videos = [];
-//containers
+//holds all containers of the html file
 var containers = [];
 
 /**
@@ -38,11 +40,16 @@ function variables()
 		if(tmp[i].id.indexOf('boton') !== -1)
 			buttons.push(tmp[i]);
 	}
-	console.log(buttons);
+
 	//images
 	tmp = document.getElementsByTagName('img');
 	for(i = 0; i < tmp.length; i++)
 		images.push(tmp[i]);
+
+	//mazes
+	for(i in images)
+		if(images[i].id.substring(0, 8) == 'P13_maze')
+			mazes.push(images[i]);
 
 	//videos
 	tmp = document.getElementsByTagName('video');
@@ -76,7 +83,8 @@ function events()
 }
 
 /**
-Manages the events caused by navigation like click or video enden. o is the id of the object that caused the event
+Manages the events caused by navigation like click or video enden.
+@param o: the id of the object that caused the event
 */
 function navEvent(o)
 {
@@ -110,10 +118,13 @@ function navEvent(o)
 			window.setTimeout(function(){
 				document.getElementById('P06_boton_conteo_1').click();
 			}, 2000);
+			//break;
 		case 'P05_boton_conteo_1':
 			window.setTimeout(function(){
-			changeMainScreenTo("P12");
-			}, 2000);
+			changeMainScreenTo("P13");
+			}, 2000);			
+			initMaze();
+			setKeyboardListeners();
 			break;
 		case 'P07_boton_volver':
 			changeMainScreenTo("P01");
@@ -129,4 +140,28 @@ function navEvent(o)
 			//eventListener for video still active!
 			break;
 	}
+}
+
+function setKeyboardListeners()
+{
+	window.onkeydown = function(e)
+	{
+		var key = e.keyCode;
+		//down
+		switch(key)
+		{
+			case 40:
+				movePerson('down');
+				break;
+			case 37:
+				movePerson('left');
+				break;
+			case 38:
+				movePerson('top');
+				break;
+			case 39:
+				movePerson('right');
+				break;
+		}
+	};
 }

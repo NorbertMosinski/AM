@@ -1,3 +1,7 @@
+/**
+Shows all elements of the main screen u want to switch to
+@param p_id_new: All elements beginning with this string will be shown, all others hiden
+*/
 function changeMainScreenTo(p_id_new)
 {
 	/*
@@ -37,14 +41,4 @@ function changeMainScreenTo(p_id_new)
 			containers[i].classList.add("hidden");	
 	}
 
-}
-
-function wait(ms)
-{
-   var start = new Date().getTime();
-   var end = start;
-   while(end < start + ms) 
-   {
-   		end = new Date().getTime();
-   }
 }

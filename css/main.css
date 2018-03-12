@@ -1,8 +1,10 @@
 html
 {
-	background: black;
-	width: 750px;
-	height: 1334px;
+	background: white;
+    /*Temporary changed*/
+	width: 550px;
+	height: 550px;
+    
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
@@ -10,7 +12,7 @@ html
 
 head, body, div
 {
-	background: black;
+	background: white;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -118,4 +120,13 @@ head, body, div
     height: 175.92px;
     left: 261px;
     top: 1086px;
+}
+
+#P13_Person
+{
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    left: 100px;
+    top: 10px;
 }
