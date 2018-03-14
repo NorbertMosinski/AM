@@ -2,13 +2,16 @@
 var buttons = [];
 //holds all images of the html file
 var images = [];
-//holds just the maze pictures of the html file
-var mazes = [];
 //holds all videos of the html file
 var videos = [];
 //holds all containers of the html file
 var containers = [];
-
+//canvas for the gameplay
+var canvas;
+//the context of the canvas
+var context;
+//game
+var game;
 /**
 The first function to be called by starting the application
 */
@@ -46,11 +49,6 @@ function variables()
 	for(i = 0; i < tmp.length; i++)
 		images.push(tmp[i]);
 
-	//mazes
-	for(i in images)
-		if(images[i].id.substring(0, 8) == 'P13_maze')
-			mazes.push(images[i]);
-
 	//videos
 	tmp = document.getElementsByTagName('video');
 	for(i = 0; i < tmp.length; i++)
@@ -60,6 +58,10 @@ function variables()
 	tmp = document.getElementsByTagName('div');
 	for(i = 0; i < tmp.length; i++)
 		containers.push(tmp[i]);
+
+	canvas = document.getElementById("P13_Canvas");
+	context = canvas.getContext('2d');
+	game = new Game();
 }
 
 /**
@@ -118,12 +120,12 @@ function navEvent(o)
 			window.setTimeout(function(){
 				document.getElementById('P06_boton_conteo_1').click();
 			}, 2000);
-			//break;
-		case 'P05_boton_conteo_1':
+			break;
+		case 'P06_boton_conteo_1':
 			window.setTimeout(function(){
 			changeMainScreenTo("P13");
 			}, 2000);			
-			initMaze();
+			game.initNextLvl();
 			setKeyboardListeners();
 			break;
 		case 'P07_boton_volver':
@@ -151,16 +153,16 @@ function setKeyboardListeners()
 		switch(key)
 		{
 			case 40:
-				movePerson('down');
+				game.movePerson('down');
 				break;
 			case 37:
-				movePerson('left');
+				game.movePerson('left');
 				break;
 			case 38:
-				movePerson('top');
+				game.movePerson('top');
 				break;
 			case 39:
-				movePerson('right');
+				game.movePerson('right');
 				break;
 		}
 	};

@@ -5,7 +5,11 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/helpfulFunctions.js"></script>
-	<script type="text/javascript" src="js/maze.js"></script>
+	<script type="text/javascript" src="js/Maze.js"></script>
+	<script type="text/javascript" src="js/Position.js"></script>
+	<script type="text/javascript" src="js/Color.js"></script>
+	<script type="text/javascript" src="js/Game.js"></script>
+	<script type="text/javascript" src="js/Person.js"></script>
 </head>
 
 <body>
@@ -71,9 +75,11 @@
 		<img src="img/Diagramacion Interfaz/diagramacion interfaz-07.png" class="img" id="P12_di-07">	
 	</div>
 
+	<!--When adding new mazes, make sure they got the right size and the walls are black, while the path is white!-->
 	<div id="P13" name="maze" class="hidden">
+		<canvas id="P13_Canvas"></canvas>
 		<img src="img/Ciclo de caminata personaje/Person.png" id="P13_Person">
-		<img src="img/Mazes/maze01.png" class="img" id="P13_maze01">
+		<img src="img/Mazes/maze01.png" class="hidden img" id="P13_maze01">
 	</div>
 
 </body>
