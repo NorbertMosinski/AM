@@ -2,7 +2,7 @@ html
 {
 	background: white;
     /*Temporary changed*/
-	width: 30%;
+	width: 100%;
 	height: 100%;
 
 	margin: 0px;
@@ -12,18 +12,19 @@ html
 
 head, body, div
 {
+    position: relative;
 	background: white;
 	margin: 0;
 	padding: 0;
 	border: 0;
-	width: 100%;
-	height: 100%;
+/*	width: 100%;
+	height: 100%;*/
 }
 
 .img
 {
-	width: 100%;
-	height: 100%;
+/*	width: 100%;
+	height: 100%;*/
 }
 
 .hidden
@@ -38,40 +39,43 @@ head, body, div
 
 .button
 {
+/**    width: 100%;
+    height: 100%;*/
 	position: absolute;
 }
 
 /*Calculated relative to the standard size - all buttons*/
 #P01_boton_info
 {
-	width: 227.76px;
-	height: 130.08px;
-	left: 543px;
-	top: 42px;
+/*	width: 227.76px;
+	height: 130.08px;*/
+	left: 52.7%;
+	top: 3%;
 }
 
 #P01_boton_iniciar
 {
-    width: 331.44px;
-    height: 131.28px;
-    left: 209px;
-    top: 1007px;
+/*    width: 331.44px;
+    height: 131.28px;*/
+    left: 20.5%;
+    top: 75.4%;
 }
 
+/*TODO*/
 #P02_boton_saltar
 {
-    width: 156px;
-    height: 109.92px;
+/*    width: 156px;
+    height: 109.92px;*/
     left: 1;
     top: 1;
 }
 
 #P03_boton_jugar
 {
-    width: 321.6px;
-    height: 155.52px;
-    left: 222px;
-    top: 1060px;
+/*    width: 321.6px;
+    height: 155.52px;*/
+    left: 21.7%;
+    top: 79.2%;
 }
 
 #P04_boton_conteo_3
@@ -100,12 +104,13 @@ head, body, div
 
 #P07_boton_volver
 {
-    width: 238.08px;
-    height: 175.92px;
-    left: 260px;
-    top: 1087px;
+/*    width: 238.08px;
+    height: 175.92px;*/
+    left: 25.3%;
+    top: 81.3%;
 }
 
+/*TODO*/
 #P07_boton_progreso
 {
     width: 164.88px;
@@ -116,17 +121,24 @@ head, body, div
 
 #P08_boton_volver
 {
-    width: 238.08px;
-    height: 175.92px;
-    left: 261px;
-    top: 1086px;
+/*    width: 238.08px;
+    height: 175.92px;*/
+    left: 25.4%;
+    top: 81.4%;
 }
 
+/*TODO*/
 #P13_Person
 {
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 5px;
+    height: 5px;
     left: 100px;
     top: 10px;
+}
+
+#P13_Canvas
+{
+/*    height: 562px;
+    width: 802px;*/
 }
