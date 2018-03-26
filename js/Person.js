@@ -4,9 +4,13 @@ var Person = function(src, pos)
 	this.pos = pos;
 }
 
+/**
+Sets the actual position to a new position.
+@param pos: the new position
+*/
 Person.prototype.setPos = function(pos)
 {
-	this.pos = pos;
-	this.src.style.left = pos.x + "px";
-	this.src.style.top = pos.y + "px";	
+	this.pos = new Position(pos.x, pos.y);
+	this.src.style.left = this.pos.x + "px";
+	this.src.style.top = this.pos.y + "px";	
 }

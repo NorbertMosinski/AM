@@ -1,5 +1,11 @@
+//TODO: Export the options in a seperate file, if there are more of them
+
 var Game = function()
 {
+	//OPTIONS
+	this.STEPS = 4;
+
+
 	//the current level
 	this.curLvl = 1;
 	//the last possible level
@@ -40,41 +46,30 @@ Game.prototype.initNextLvl = function()
 	this.initPersonPosition();
 }
 
+Game.prototype.movetest = function(obj){
+
+
+}
 /**
+TODO: Move speed
 Moves the person in the given direction if possible
-@param direction: the direction to move the person to
+@param direction: the direction to move the person to as pos object
 */
 Game.prototype.movePerson = function(direction)
 {
 	//the color at the actual position of the person
 	var actPosColor = imageDataToColor(this.person.pos);
-	var newPos;
+	var newPos = new Position(this.person.pos.x+direction.x, this.person.pos.y+direction.y);
 
-	switch(direction)
+	for(i = 0; i < this.STEPS; i++)
 	{
-		case 'top':
-			newPos = new Position(this.person.pos.x, this.person.pos.y-1);
 			if(colorsEqual(actPosColor, imageDataToColor(newPos)))
 				this.person.setPos(newPos);
-			break;
+			else
+				return;
 
-		case 'down':
-			newPos = new Position(this.person.pos.x, this.person.pos.y+1);
-			if(colorsEqual(actPosColor, imageDataToColor(newPos)))
-				this.person.setPos(newPos);
-			break;
-
-		case 'left':
-			newPos = new Position(this.person.pos.x-1, this.person.pos.y);
-			if(colorsEqual(actPosColor, imageDataToColor(newPos)))
-				this.person.setPos(newPos);
-			break;
-
-		case 'right':
-			newPos = new Position(this.person.pos.x+1, this.person.pos.y);
-			if(colorsEqual(actPosColor, imageDataToColor(newPos)))
-				this.person.setPos(newPos);
-			break;
+			newPos.x += direction.x;
+			newPos.y += direction.y;
 	}
 }
 

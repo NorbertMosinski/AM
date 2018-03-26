@@ -12,6 +12,7 @@ var canvas;
 var context;
 //game
 var game;
+
 /**
 The first function to be called by starting the application
 */
@@ -153,16 +154,16 @@ function setKeyboardListeners()
 		switch(key)
 		{
 			case 40:
-				game.movePerson('down');
+				game.movePerson(new Position(0, 1));
 				break;
 			case 37:
-				game.movePerson('left');
+				game.movePerson(new Position(-1, 0));
 				break;
 			case 38:
-				game.movePerson('top');
+				game.movePerson(new Position(0, -1));
 				break;
 			case 39:
-				game.movePerson('right');
+				game.movePerson(new Position(1, 0));
 				break;
 		}
 	};
