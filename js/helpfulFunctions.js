@@ -52,16 +52,6 @@ function findColorInLine(posBegin, posEnd, color, context)
 	return null;
 }
 
-function newWhiteColor()
-{
-	return new Color(255, 255, 255);
-}
-
-function newBlackColor()
-{
-	return new Color(0, 0, 0);
-}
-
 /**
 	returns the color of the canvas context at the given position
 	@param pos: the position

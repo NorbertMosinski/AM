@@ -7,7 +7,7 @@ var Game = function()
 	//the current level
 	this.curLvl = 1;
 	//the person in the labirynth
-	this.person = new Person(document.getElementById("P13_Person"), null);
+	this.person = new Person(document.getElementById("P13_Person"), new Position(0,0));
 	//all mazes
 	this.mazes = [];
 
@@ -54,10 +54,10 @@ Game.prototype.movePerson = function(direction)
 	var actPosColor = imageDataToColor(this.person.pos, this.context);
 	var newPos = new Position(this.person.pos.x+direction.x, this.person.pos.y+direction.y);
 
-	for(i = 0; i < OPTIONS_GAME_STEPS; i++)
+	for(i = 0; i < OPT_GAME_STEPS; i++)
 	{
 		if(colorsEqual(actPosColor, imageDataToColor(newPos, this.context)))
-			this.person.setPos(newPos);
+			this.person.move(direction, 1);
 		else
 			return;
 

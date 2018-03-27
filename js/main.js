@@ -144,20 +144,20 @@ function setKeyboardListeners()
 	window.onkeydown = function(e)
 	{
 		var key = e.keyCode;
-		//down
+		
 		switch(key)
 		{
 			case 40:
-				game.movePerson(new Position(0, 1));
+				game.movePerson(CONST_POS_BOT);
 				break;
 			case 37:
-				game.movePerson(new Position(-1, 0));
+				game.movePerson(CONST_POS_LEFT);
 				break;
 			case 38:
-				game.movePerson(new Position(0, -1));
+				game.movePerson(CONST_POS_TOP);
 				break;
 			case 39:
-				game.movePerson(new Position(1, 0));
+				game.movePerson(CONST_POS_RIGHT);
 				break;
 		}
 	};

@@ -22,12 +22,6 @@ head, body, div
 	height: 100%;*/
 }
 
-.img
-{
-/*	width: 100%;
-	height: 100%;*/
-}
-
 .hidden
 {
 	display: none;
@@ -40,8 +34,6 @@ head, body, div
 
 .button
 {
-/**    width: 100%;
-    height: 100%;*/
 	position: absolute;
 }
 
@@ -128,7 +120,6 @@ head, body, div
     top: 81.4%;
 }
 
-/*TODO*/
 #P13_Person
 {
     position: absolute;
@@ -136,10 +127,4 @@ head, body, div
     height: 5px;
     left: 5px;
     top: 5px;
-}
-
-#P13_Canvas
-{
-/*    height: 562px;
-    width: 802px;*/
 }
