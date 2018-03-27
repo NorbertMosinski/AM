@@ -26,19 +26,21 @@ function pxToValue(src)
 }
 
 /**
-Looks for a specific color in a line. If the start- and endposition are not in the same line, the function will be useless.
+Looks for a specific color in a line of the canvas context. If the start- and endposition are not in the same line, the function will be useless.
 @param posBegin: the start position
 @param posEnd: the end position
 @param color: the color the function will be looking for
+@param context: the canvas context containing the drawn image 
 @return: the position of the color if found, null if not
 */
-function findColorInLine(posBegin, posEnd, color)
+function findColorInLine(posBegin, posEnd, color, context)
 {
 	for(i = posBegin.x; i <= posEnd.x; i++)
 	{
 		for(j = posBegin.y; j <= posEnd.y; j++)
 		{
-		//	console.log("(" + i + "," + j + ")" + "r: " + context.getImageData(i, j, 1, 1).data[0] + " g:" + context.getImageData(i, j, 1, 1).data[1] + " b: " + context.getImageData(i, j, 1, 1).data[2]);
+		//	if(posEnd.y != 0)
+		//		console.log("(" + i + "," + j + ")" + "r: " + context.getImageData(i, j, 1, 1).data[0] + " g:" + context.getImageData(i, j, 1, 1).data[1] + " b: " + context.getImageData(i, j, 1, 1).data[2]);
 			if(context.getImageData(i, j, 1, 1).data[0] == color.r 
 			&& context.getImageData(i, j, 1, 1).data[1] == color.g
 			&& context.getImageData(i, j, 1, 1).data[2] == color.b)
@@ -63,9 +65,10 @@ function newBlackColor()
 /**
 	returns the color of the canvas context at the given position
 	@param pos: the position
+	@param context: the canvas context
 	@return: the color at the given position
 */
-function imageDataToColor(pos)
+function imageDataToColor(pos, context)
 {
 	return new Color(context.getImageData(pos.x, pos.y, 1, 1).data[0], context.getImageData(pos.x, pos.y, 1, 1).data[1], context.getImageData(pos.x, pos.y, 1, 1).data[2]);
 }
@@ -79,4 +82,19 @@ function colorsEqual(col1, col2)
 	if(col1.r == col2.r && col1.g == col2.g && col1.b == col2.b)
 		return 1;
 	return 0;
+}
+
+/**
+Drawns an image on the given canvas context. Als sets the needed options.
+@param src: the source of the image
+@param context: the context of the canvas
+*/
+function drawImageOnCanvas(src, context)
+{
+	//initialize context of canvas
+	context.canvas.width = src.width;
+	context.canvas.height = src.height;
+
+	//draw the image on canvas	
+	context.drawImage(src, 0, 0, src.width, src.height);
 }

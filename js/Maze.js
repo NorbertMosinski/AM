@@ -1,25 +1,29 @@
-var Maze = function(src, beginPos, endPos)
+var Maze = function(src)
 {
 	this.src = src;
-	this.beginPos = this.findBeginPos();
-	this.endPos = this.findEndPos();
-	//this.WallColor = imageData;
+	this.beginPos = null;
+	this.endPos = null;
+
+	this.init();
 }
 
-//TODO
-Maze.prototype.findBeginPos = function()
+/**
+Initializes the begin and end position of the labirynth
+*/
+Maze.prototype.init = function()
 {
+	var canvas = document.createElement('canvas');
+	var context = canvas.getContext('2d');
+	var tolerance = 0;
 
-}
+	drawImageOnCanvas(this.src, context);
 
-//TODO
-Maze.prototype.findEndPos = function()
-{
-
-}
-
-//TODO
-Maze.prototype.determineColors = function()
-{
-		
+	while((null == this.beginPos || null == this.endPos) && parseInt(context.canvas.height*OPTIONS_MAZE_INITTOLERANCE) >= tolerance)
+	{
+		if(null == this.beginPos)
+			this.beginPos = findColorInLine(new Position(0, 0 + tolerance), new Position(context.canvas.width, 0 + tolerance), newWhiteColor(), context);
+		if(null == this.endPos)
+			this.endPos = findColorInLine(new Position(0, context.canvas.height - tolerance), new Position(context.canvas.width, context.canvas.height - tolerance), newWhiteColor(), context);
+		tolerance++;
+	}
 }

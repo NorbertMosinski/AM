@@ -6,10 +6,6 @@ var images = [];
 var videos = [];
 //holds all containers of the html file
 var containers = [];
-//canvas for the gameplay
-var canvas;
-//the context of the canvas
-var context;
 //game
 var game;
 
@@ -60,8 +56,6 @@ function variables()
 	for(i = 0; i < tmp.length; i++)
 		containers.push(tmp[i]);
 
-	canvas = document.getElementById("P13_Canvas");
-	context = canvas.getContext('2d');
 	game = new Game();
 }
 
