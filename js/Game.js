@@ -40,7 +40,7 @@ Game.prototype.initLvl = function(lvl)
 	//draw labirynth
 	drawImageOnCanvas(this.mazes[this.curLvl-1].src, this.context);
 	
-	//set person at the beginning
+	//set person at maze begin
 	this.person.setPos(this.mazes[this.curLvl-1].beginPos);
 }
 

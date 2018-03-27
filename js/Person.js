@@ -2,16 +2,6 @@ var Person = function(src, pos)
 {
 	this.src = src;
 	this.pos = pos;
-	this.init();
-}
-
-/**
-Initializes the style settings of the person
-*/
-Person.prototype.init = function()
-{
-	this.src.style.width = OPT_PERSON_SIZE;
-	this.src.style.height = OPT_PERSON_SIZE;
 	this.updateViewStyle();
 }
 
