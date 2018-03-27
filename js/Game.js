@@ -27,10 +27,12 @@ Game.prototype.createMazes = function()
 }
 
 /**
-Initializes the next level
+Initializes the given level
+@param lvl: the level to be initialized
 */
-Game.prototype.initNextLvl = function()
+Game.prototype.initLvl = function(lvl)
 {
+	this.curLvl = lvl;
 	//game won if true
 	if(this.curLvl > this.lastLvl)
 		changeMainScreenTo('P09');		

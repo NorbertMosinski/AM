@@ -120,7 +120,7 @@ function navEvent(o)
 			window.setTimeout(function(){
 			changeMainScreenTo("P13");
 			}, 2000);			
-			game.initNextLvl();
+			game.initLvl(1);
 			setKeyboardListeners();
 			break;
 		case 'P07_boton_volver':
