@@ -90,7 +90,8 @@ function navEvent(o)
 	{
 		//CHANGED TO SAVE TIME!
 		case 'P01_boton_iniciar':
-			changeMainScreenTo("P03");
+			//changeMainScreenTo("P02");
+			document.getElementById('P06_boton_conteo_1').click();
 			break;
 		case 'P01_boton_info':
 			changeMainScreenTo("P07");
@@ -136,6 +137,9 @@ function navEvent(o)
 			changeMainScreenTo("P02");
 			//eventListener for video still active!
 			break;
+		case 'P13_boton_win':
+			window.onkeydown = null;
+			changeMainScreenTo("P09");
 	}
 }
 

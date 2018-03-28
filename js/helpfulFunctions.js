@@ -39,12 +39,13 @@ function findColorInLine(posBegin, posEnd, color, context)
 	{
 		for(j = posBegin.y; j <= posEnd.y; j++)
 		{
-		//	if(posEnd.y != 0)
-		//		console.log("(" + i + "," + j + ")" + "r: " + context.getImageData(i, j, 1, 1).data[0] + " g:" + context.getImageData(i, j, 1, 1).data[1] + " b: " + context.getImageData(i, j, 1, 1).data[2]);
+			if(posEnd.y != 0)
+				//console.log("(" + i + "," + j + ")" + "r: " + context.getImageData(i, j, 1, 1).data[0] + " g:" + context.getImageData(i, j, 1, 1).data[1] + " b: " + context.getImageData(i, j, 1, 1).data[2]);
 			if(context.getImageData(i, j, 1, 1).data[0] == color.r 
 			&& context.getImageData(i, j, 1, 1).data[1] == color.g
 			&& context.getImageData(i, j, 1, 1).data[2] == color.b)
 			{
+
 				return new Position(i, j);
 			}
 		}	
@@ -65,13 +66,30 @@ function imageDataToColor(pos, context)
 
 /**
 Compares two colors.
-@return: 1 if equal, else 0.
+@param col1: first color to be compared
+@param col2: second color to be compared
+@return: true if equal, else false.
 */
 function colorsEqual(col1, col2)
 {
 	if(col1.r == col2.r && col1.g == col2.g && col1.b == col2.b)
-		return 1;
-	return 0;
+		return true;
+	return false;
+}
+
+/**
+Compares two positions.
+@param pos1: first position to be compared
+@param pos2: second color to be compared
+@return: true if equal, else false.
+*/
+function positionsEqual(pos1, pos2)
+{
+	if(pos1.x == pos2.x)
+		if(pos1.y == pos2.y)
+			return true;
+
+	return false;
 }
 
 /**
@@ -87,4 +105,17 @@ function drawImageOnCanvas(src, context)
 
 	//draw the image on canvas	
 	context.drawImage(src, 0, 0, src.width, src.height);
+}
+
+/**
+Looks for the button that matches the id.
+@param id: the id of the button
+@return: the button if found, else null
+*/
+function getButton(id)
+{
+	for(i in buttons)
+		if(buttons[i].id == id)
+			return buttons[i];
+	return null;
 }

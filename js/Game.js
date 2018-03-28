@@ -7,7 +7,7 @@ var Game = function()
 	//the current level
 	this.curLvl = 1;
 	//the person in the labirynth
-	this.person = new Person(document.getElementById("P13_Person"), new Position(0,0));
+	this.person = new Person(document.getElementById("P13_person"), new Position(0,0));
 	//all mazes
 	this.mazes = [];
 
@@ -33,14 +33,25 @@ Initializes the given level
 Game.prototype.initLvl = function(lvl)
 {
 	this.curLvl = lvl;
+	console.log("last lvl: " + this.lastLvl);
 	//game won if true
 	if(this.curLvl > this.lastLvl)
-		changeMainScreenTo('P09');		
+	{
+		getButton("P13_boton_win").click();
+		return;
+	}
 
 	//draw labirynth
 	drawImageOnCanvas(this.mazes[this.curLvl-1].src, this.context);
 	
 	//set person at maze begin
+
+	/* FOR WIN TESTING
+	var tmp = new_Position(this.mazes[this.curLvl-1].endPos);
+	tmp.y -=10;
+	this.person.setPos(tmp);
+	*/
+
 	this.person.setPos(this.mazes[this.curLvl-1].beginPos);
 }
 
@@ -60,6 +71,9 @@ Game.prototype.movePerson = function(direction)
 			this.person.move(direction, 1);
 		else
 			return;
+
+		if(positionsEqual(this.person.pos, this.mazes[this.curLvl-1].endPos))
+			this.initLvl(this.curLvl+1);
 
 		newPos.addPos(direction);
 	}
