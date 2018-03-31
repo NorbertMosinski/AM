@@ -35,9 +35,9 @@ Looks for a specific color in a line of the canvas context. If the start- and en
 */
 function findColorInLine(posBegin, posEnd, color, context)
 {
-	for(i = posBegin.x; i <= posEnd.x; i++)
+	for(var i = posBegin.x; i <= posEnd.x; i++)
 	{
-		for(j = posBegin.y; j <= posEnd.y; j++)
+		for(var j = posBegin.y; j <= posEnd.y; j++)
 		{
 			if(posEnd.y != 0)
 				//console.log("(" + i + "," + j + ")" + "r: " + context.getImageData(i, j, 1, 1).data[0] + " g:" + context.getImageData(i, j, 1, 1).data[1] + " b: " + context.getImageData(i, j, 1, 1).data[2]);
@@ -114,7 +114,7 @@ Looks for the button that matches the id.
 */
 function getButton(id)
 {
-	for(i in buttons)
+	for(var i in buttons)
 		if(buttons[i].id == id)
 			return buttons[i];
 	return null;

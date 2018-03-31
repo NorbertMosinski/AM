@@ -35,7 +35,7 @@ function variables()
 	
 	//buttons
 	tmp = document.getElementsByTagName('input');
-	for(i = 0; i < tmp.length; i++)
+	for(var i = 0; i < tmp.length; i++)
 	{
 		if(tmp[i].id.indexOf('boton') !== -1)
 			buttons.push(tmp[i]);
@@ -43,17 +43,17 @@ function variables()
 
 	//images
 	tmp = document.getElementsByTagName('img');
-	for(i = 0; i < tmp.length; i++)
+	for(var i = 0; i < tmp.length; i++)
 		images.push(tmp[i]);
 
 	//videos
 	tmp = document.getElementsByTagName('video');
-	for(i = 0; i < tmp.length; i++)
+	for(var i = 0; i < tmp.length; i++)
 		videos.push(tmp[i]);
 
 	//containers
 	tmp = document.getElementsByTagName('div');
-	for(i = 0; i < tmp.length; i++)
+	for(var i = 0; i < tmp.length; i++)
 		containers.push(tmp[i]);
 
 	game = new Game();
@@ -64,14 +64,14 @@ Manages the events of the html document.
 */
 function events()
 {
-	for(i = 0; i < buttons.length; i++)
+	for(var i = 0; i < buttons.length; i++)
 	{
 		buttons[i].addEventListener("click", function(){
 			navEvent(this.id);
 		});
 	}
 
-	for(i = 0; i < videos.length; i++)
+	for(var i = 0; i < videos.length; i++)
 	{
 		videos[i].addEventListener("ended", function(){
 			navEvent(this.id);
@@ -127,8 +127,8 @@ function navEvent(o)
 		case 'P06_boton_conteo_1':
 			window.setTimeout(function(){
 			changeMainScreenTo("P13");
-			}, 2000);			
-			game.initLvl(1);
+			}, 2000);
+			game.initLvl(game.curLvl);
 			setKeyboardListeners();
 			break;
 		case 'P07_boton_volver':
@@ -136,6 +136,20 @@ function navEvent(o)
 			break;
 		case 'P07_boton_progreso':
 			changeMainScreenTo("P08");
+			for(var i = 0; i < game.maxUnlockedLvl; i++)
+			{
+				console.log(i);
+				var str = 'P08_boton_lvl';
+				if(i < 10)
+					str += '0';
+				str += (i+1);
+	//			console.log(str.concat(i) + " set visible");
+				console.log(i);
+				getButton(str).classList.remove("hidden");
+				console.log(i);
+				console.log("Max unlocked lvl is: " + game.maxUnlockedLvl);
+				console.log(i);
+			}
 			break;
 		case 'P08_boton_volver':
 			changeMainScreenTo("P07");
@@ -147,10 +161,24 @@ function navEvent(o)
 		case 'P13_boton_win':
 			window.onkeydown = null;
 			changeMainScreenTo("P09");
+			window.setTimeout(function(){
+				changeMainScreenTo("P01");
+			}, 4000);
 			break;
 		case 'P13_boton_lose':
 			window.onkeydown = null;
 			changeMainScreenTo("P09");
+			window.setTimeout(function(){
+				changeMainScreenTo("P01");
+			}, 4000);
+			break;
+		default:
+			if(o.substring(0, o.length-2) == 'P08_boton_lvl')
+			{
+				changeMainScreenTo("P13");
+				game.initLvl(parseInt(o.substring(o.length-2, o.length)));
+				setKeyboardListeners();
+			}
 			break;
 	}
 }

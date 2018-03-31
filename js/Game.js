@@ -87,7 +87,7 @@ Game.prototype.movePerson = function(direction)
 			clearInterval(this.clock);
 
 			if(this.maxUnlockedLvl < this.curLvl)
-				this.maxUnlockedLvl = this.curLvl;
+				this.maxUnlockedLvl = this.curLvl+1;
 
 			this.initLvl(this.curLvl+1);
 			break;
