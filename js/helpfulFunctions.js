@@ -124,11 +124,12 @@ function getButton(id)
 This function realizes a timer
 @param duration: The timer duration
 @param display: the content where the timer will be displayed
+@return: the clock object
 */
 function startTimer(duration, display) 
 {
     var timer = duration, minutes, seconds;
-    setInterval(function () 
+    var clock = setInterval(function () 
     {
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
@@ -140,8 +141,10 @@ function startTimer(duration, display)
 
         if (--timer < 0) 
         {
-            timer = 0;
+        	clearInterval(clock);
+            timer = duration;
             getButton("P13_boton_lose").click();
         }
     }, 1000);
+    return clock;
 }

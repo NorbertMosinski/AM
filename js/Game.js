@@ -1,5 +1,7 @@
 var Game = function()
 {
+	//the clock for this game
+	this.clock = null;
 	//the canvas object
 	this.canvas = document.getElementById("P13_Canvas");
 	//the context of the canvas
@@ -10,6 +12,8 @@ var Game = function()
 	this.person = new Person(document.getElementById("P13_person"), new Position(0,0));
 	//all mazes
 	this.mazes = [];
+	//the max level unlocked until now
+	this.maxUnlockedLvl = 1;
 
 	this.createMazes();
 
@@ -33,7 +37,7 @@ Initializes the given level
 Game.prototype.initLvl = function(lvl)
 {
 	var time = 60 * OPT_GAME_TIMELIMIT;
-    var display = document.getElementById('P13_time');
+    var timeDisplay = document.getElementById('P13_time');
 	this.curLvl = lvl;
 
 	//game won if true
@@ -46,16 +50,17 @@ Game.prototype.initLvl = function(lvl)
 	//draw labirynth
 	drawImageOnCanvas(this.mazes[this.curLvl-1].src, this.context);
 
-	/* FOR WIN TESTING
+	//FOR WIN TESTING
+
 	var tmp = new_Position(this.mazes[this.curLvl-1].endPos);
 	tmp.y -=10;
 	this.person.setPos(tmp);
-	*/
+	
 
 	//set person at maze begin
-	this.person.setPos(this.mazes[this.curLvl-1].beginPos);
+	//this.person.setPos(this.mazes[this.curLvl-1].beginPos);
 	
-	startTimer(time, display);
+	this.clock = startTimer(time, timeDisplay);
 }
 
 /**
@@ -75,8 +80,18 @@ Game.prototype.movePerson = function(direction)
 		else
 			return;
 
+		//win current lvl
 		if(positionsEqual(this.person.pos, this.mazes[this.curLvl-1].endPos))
+		{
+			//stop timer
+			clearInterval(this.clock);
+
+			if(this.maxUnlockedLvl < this.curLvl)
+				this.maxUnlockedLvl = this.curLvl;
+
 			this.initLvl(this.curLvl+1);
+			break;
+		}
 
 		newPos.addPos(direction);
 	}

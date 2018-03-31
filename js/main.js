@@ -98,7 +98,7 @@ function navEvent(o)
 		//CHANGED TO SAVE TIME!
 		case 'P01_boton_iniciar':
 			//changeMainScreenTo("P02");
-			document.getElementById('P06_boton_conteo_1').click();
+			getButton('P06_boton_conteo_1').click();
 			break;
 		case 'P01_boton_info':
 			changeMainScreenTo("P07");
@@ -109,19 +109,19 @@ function navEvent(o)
 		case 'P03_boton_jugar':
 			changeMainScreenTo("P04");
 			window.setTimeout(function(){
-				document.getElementById('P04_boton_conteo_3').click();
+				getButton('P04_boton_conteo_3').click();
 			}, 2000);
 			break;
 		case 'P04_boton_conteo_3':
 		changeMainScreenTo("P05");
 			window.setTimeout(function(){
-				document.getElementById('P05_boton_conteo_2').click();
+				getButton('P05_boton_conteo_2').click();
 			}, 2000);
 			break;
 		case 'P05_boton_conteo_2':
 			changeMainScreenTo("P06");
 			window.setTimeout(function(){
-				document.getElementById('P06_boton_conteo_1').click();
+				getButton('P06_boton_conteo_1').click();
 			}, 2000);
 			break;
 		case 'P06_boton_conteo_1':
