@@ -32,8 +32,10 @@ Initializes the given level
 */
 Game.prototype.initLvl = function(lvl)
 {
+	var time = 60 * OPT_GAME_TIMELIMIT;
+    var display = document.getElementById('P13_time');
 	this.curLvl = lvl;
-	console.log("last lvl: " + this.lastLvl);
+
 	//game won if true
 	if(this.curLvl > this.lastLvl)
 	{
@@ -43,8 +45,6 @@ Game.prototype.initLvl = function(lvl)
 
 	//draw labirynth
 	drawImageOnCanvas(this.mazes[this.curLvl-1].src, this.context);
-	
-	//set person at maze begin
 
 	/* FOR WIN TESTING
 	var tmp = new_Position(this.mazes[this.curLvl-1].endPos);
@@ -52,7 +52,10 @@ Game.prototype.initLvl = function(lvl)
 	this.person.setPos(tmp);
 	*/
 
+	//set person at maze begin
 	this.person.setPos(this.mazes[this.curLvl-1].beginPos);
+	
+	startTimer(time, display);
 }
 
 /**

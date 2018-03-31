@@ -128,3 +128,11 @@ head, body, div
     left: 5px;
     top: 5px;
 }
+
+#P13_time
+{
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    color: red;
+}

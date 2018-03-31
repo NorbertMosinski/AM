@@ -77,6 +77,13 @@ function events()
 			navEvent(this.id);
 		});
 	}
+
+	//prevent scroll on pressing arrow keys
+	window.addEventListener("keydown", function(e)
+	{
+		if([37,38,39,40].indexOf(e.keyCode) > -1)
+			e.preventDefault();
+	}, false);
 }
 
 /**
@@ -140,15 +147,20 @@ function navEvent(o)
 		case 'P13_boton_win':
 			window.onkeydown = null;
 			changeMainScreenTo("P09");
+			break;
+		case 'P13_boton_lose':
+			window.onkeydown = null;
+			changeMainScreenTo("P09");
+			break;
 	}
 }
 
 function setKeyboardListeners()
 {
+
 	window.onkeydown = function(e)
 	{
 		var key = e.keyCode;
-		
 		switch(key)
 		{
 			case 40:
