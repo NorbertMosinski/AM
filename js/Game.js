@@ -38,14 +38,14 @@ Game.prototype.initLvl = function(lvl)
 {
 	var time = 60 * OPT_GAME_TIMELIMIT;
     var timeDisplay = document.getElementById('P13_time');
-	this.curLvl = lvl;
 
 	//game won if true
-	if(this.curLvl > this.lastLvl)
+	if(lvl > this.lastLvl)
 	{
 		getButton("P13_boton_win").click();
 		return;
 	}
+	this.curLvl = lvl;
 
 	//draw labirynth
 	drawImageOnCanvas(this.mazes[this.curLvl-1].src, this.context);
