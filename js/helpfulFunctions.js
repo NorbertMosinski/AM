@@ -174,15 +174,3 @@ function colision(a1, a2)
 		return true;
 	return false;
 }
-
-/**
-Switches the object references
-@param o1: first object
-@param o2: second object
-*/
-function switchObj(o1, o2)
-{
-	var tmp = o1;
-	o1 = o2;
-	o2 = tmp;
-}
