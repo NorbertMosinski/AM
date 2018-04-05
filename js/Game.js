@@ -82,7 +82,6 @@ Game.prototype.movePerson = function(direction)
 	else
 		newPos = new Position(this.person.area.pos.x+direction.x, this.person.area.pos.y+direction.y);
 	
-	console.log("new Pos: (" + newPos.x + "," + newPos.y + ")");
 	for(i = 0; i < OPT_GAME_STEPS; i++)
 	{
 		if(colorsEqual(actPosColor, imageDataToColor(newPos, this.context)))
@@ -90,9 +89,7 @@ Game.prototype.movePerson = function(direction)
 		else
 			return;
 
-		console.log("person: (" + this.person.area.pos.x + " , " + this.person.area.pos.y + ")");
-		//win current lvl
-		
+		//win current lvl		
 		if(colision(this.person.area, this.mazes[this.curLvl-1].endArea))
 		{
 			//stop timer

@@ -42,7 +42,6 @@ Maze.prototype.init = function()
 			{
 				var tmpPos = findColorInLine(this.endArea.pos, new Position(context.canvas.width, this.endArea.pos.y), CONST_COL_BLACK, context);
 				this.endArea.hitbox.width = tmpPos.x - this.beginArea.pos.x;
-				console.log("Endarea hitbox: " + this.endArea.hitbox.width);
 			}		
 		}
 		tolerance++;

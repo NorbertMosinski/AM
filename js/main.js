@@ -138,17 +138,12 @@ function navEvent(o)
 			changeMainScreenTo("P08");
 			for(var i = 0; i < game.maxUnlockedLvl; i++)
 			{
-				console.log(i);
 				var str = 'P08_boton_lvl';
-				if(i < 10)
+				if(i < 9)
 					str += '0';
 				str += (i+1);
-	//			console.log(str.concat(i) + " set visible");
-				console.log(i);
+				console.log(str);
 				getButton(str).classList.remove("hidden");
-				console.log(i);
-				console.log("Max unlocked lvl is: " + game.maxUnlockedLvl);
-				console.log(i);
 			}
 			break;
 		case 'P08_boton_volver':
