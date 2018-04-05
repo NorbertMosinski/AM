@@ -147,7 +147,6 @@ function navEvent(o)
 				if(i < 9)
 					str += '0';
 				str += (i+1);
-				console.log(str);
 				getButton(str).classList.remove("hidden");
 			}
 			break;
