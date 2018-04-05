@@ -36,10 +36,11 @@ Initializes the given level
 */
 Game.prototype.initLvl = function(lvl)
 {
+	//timer
 	var time = 60 * OPT_GAME_TIMELIMIT;
     var timeDisplay = document.getElementById('P13_time');
 
-	//game won if true
+	//game won if last lvl reached
 	if(lvl > this.lastLvl)
 	{
 		getButton("P13_boton_win").click();
@@ -51,14 +52,14 @@ Game.prototype.initLvl = function(lvl)
 	drawImageOnCanvas(this.mazes[this.curLvl-1].src, this.context);
 
 	//FOR WIN TESTING
-	
+	/*
 	var tmp = new_Position(this.mazes[this.curLvl-1].endArea.pos);
 	tmp.y -=10;
 	this.person.setPos(tmp);
-	
+	*/
 
 	//set person at maze begin
-	//this.person.setPos(this.mazes[this.curLvl-1].beginArea.mid);
+	this.person.setPos(this.mazes[this.curLvl-1].beginArea.mid);
 	
 	this.clock = startTimer(time, timeDisplay);
 }
@@ -82,6 +83,7 @@ Game.prototype.movePerson = function(direction)
 	else
 		newPos = new Position(this.person.area.pos.x+direction.x, this.person.area.pos.y+direction.y);
 	
+	//moving person step by step in the given direction
 	for(i = 0; i < OPT_GAME_STEPS; i++)
 	{
 		if(colorsEqual(actPosColor, imageDataToColor(newPos, this.context)))
@@ -89,7 +91,7 @@ Game.prototype.movePerson = function(direction)
 		else
 			return;
 
-		//win current lvl		
+		//end of labirynth reached? -> win current lvl		
 		if(colision(this.person.area, this.mazes[this.curLvl-1].endArea))
 		{
 			//stop timer
@@ -98,6 +100,7 @@ Game.prototype.movePerson = function(direction)
 			if(this.maxUnlockedLvl < this.curLvl)
 				this.maxUnlockedLvl = this.curLvl+1;
 
+			//init next lvl
 			this.initLvl(this.curLvl+1);
 			break;
 		}

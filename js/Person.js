@@ -1,18 +1,23 @@
 var Person = function(src, area)
 {
+	//person image
 	this.src = src;
+	//persons area
 	this.area = new Area(area.pos, area.hitbox);
 	this.updateViewStyle();
 }
 
 /**
-Sets the actual position to a new position.
+Sets the actual position to a new position. No effect if pos is null.
 @param pos: the new position
 */
 Person.prototype.setPos = function(pos)
 {
-	this.area.pos = new Position(pos.x, pos.y);
-	this.updateViewStyle();
+	if(null != pos)
+	{
+		this.area.pos = new Position(pos.x, pos.y);
+		this.updateViewStyle();
+	}
 }
 
 /**

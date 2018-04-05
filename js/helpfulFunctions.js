@@ -16,12 +16,11 @@ function changeMainScreenTo(p_id_new)
 }
 
 /**
-Returns the value of a src like "200px"
+Returns the number value of a src like "200px"
 @return the number part
 */
 function pxToValue(src)
 {
-	console.log(src);
 	return parseInt(src.substring(0, src.length-2));
 }
 
@@ -85,9 +84,8 @@ Compares two positions.
 */
 function positionsEqual(pos1, pos2)
 {
-	if(pos1.x == pos2.x)
-		if(pos1.y == pos2.y)
-			return true;
+	if(pos1.x == pos2.x && pos1.y == pos2.y)
+		return true;
 
 	return false;
 }
@@ -163,7 +161,7 @@ function startTimer(duration, display)
 }
 
 /**
-Checks if 2 areas colidate with each other concerning their positions.
+Checks if 2 areas colidate with each other concerning their positions and hitboxes.
 @param o1: the first object
 @param o2: the second object
 @return true if the objects colidate, else false.

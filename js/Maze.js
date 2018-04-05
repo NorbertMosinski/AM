@@ -1,7 +1,10 @@
 var Maze = function(src)
 {
+	//maze image
 	this.src = src;
+	//maze begin
 	this.beginArea = new Area(null, new Hitbox(null, 2));
+	//maze end
 	this.endArea = new Area(null, new Hitbox(null, 2));
 	this.init();
 }
@@ -33,6 +36,7 @@ Maze.prototype.init = function()
 			}
 		}
 
+		//end
 		if(null == this.endArea.pos)
 		{
 			this.endArea.setPos(findColorInLine(new Position(0, context.canvas.height - tolerance), new Position(context.canvas.width, context.canvas.height - tolerance), CONST_COL_WHITE, context));
