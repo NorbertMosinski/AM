@@ -1,7 +1,7 @@
-var Person = function(src, pos)
+var Person = function(src, area)
 {
 	this.src = src;
-	this.pos = pos;
+	this.area = new Area(area.pos, area.hitbox);
 	this.updateViewStyle();
 }
 
@@ -11,7 +11,7 @@ Sets the actual position to a new position.
 */
 Person.prototype.setPos = function(pos)
 {
-	this.pos = new Position(pos.x, pos.y);
+	this.area.pos = new Position(pos.x, pos.y);
 	this.updateViewStyle();
 }
 
@@ -22,8 +22,8 @@ Moves the person in the given direction by the given steps
 */
 Person.prototype.move = function(direction, steps)
 {
-	this.pos.x += direction.x * steps;
-	this.pos.y += direction.y * steps;
+	this.area.pos.x += direction.x * steps;
+	this.area.pos.y += direction.y * steps;
 	this.updateViewStyle();
 }
 
@@ -32,6 +32,6 @@ Updates the style settings in the html document, the visual representation of th
 */
 Person.prototype.updateViewStyle = function()
 {
-	this.src.style.left = this.pos.x - OPT_PERSON_SIZE/2 + "px";
-	this.src.style.top = this.pos.y - OPT_PERSON_SIZE/2 + "px";	
+	this.src.style.left = this.area.pos.x + "px";
+	this.src.style.top = this.area.pos.y  + "px";	
 }

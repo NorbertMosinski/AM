@@ -9,7 +9,7 @@ var Game = function()
 	//the current level
 	this.curLvl = 1;
 	//the person in the labirynth
-	this.person = new Person(document.getElementById("P13_person"), new Position(0,0));
+	this.person = new Person(document.getElementById("P13_person"), new Area(new Position(0,0), new Hitbox(OPT_PERSON_SIZE, OPT_PERSON_SIZE)));
 	//all mazes
 	this.mazes = [];
 	//the max level unlocked until now
@@ -52,13 +52,13 @@ Game.prototype.initLvl = function(lvl)
 
 	//FOR WIN TESTING
 
-	var tmp = new_Position(this.mazes[this.curLvl-1].endPos);
+	var tmp = new_Position(this.mazes[this.curLvl-1].endArea.pos);
 	tmp.y -=10;
 	this.person.setPos(tmp);
 	
 
 	//set person at maze begin
-	//this.person.setPos(this.mazes[this.curLvl-1].beginPos);
+	//this.person.setPos(this.mazes[this.curLvl-1].beginArea.mid);
 	
 	this.clock = startTimer(time, timeDisplay);
 }
@@ -70,9 +70,19 @@ Moves the person in the given direction if possible
 Game.prototype.movePerson = function(direction)
 {
 	//the color at the actual position of the person
-	var actPosColor = imageDataToColor(this.person.pos, this.context);
-	var newPos = new Position(this.person.pos.x+direction.x, this.person.pos.y+direction.y);
+	var actPosColor = imageDataToColor(this.person.area.pos, this.context);
+	var newPos;
 
+	if(direction == CONST_POS_BOT)
+		newPos = new Position(this.person.area.pos.x+direction.x, this.person.area.pos.y+direction.y+this.person.area.hitbox.height-1);
+
+	else if(direction == CONST_POS_RIGHT)
+		newPos = new Position(this.person.area.pos.x+direction.x+this.person.area.hitbox.width-1, this.person.area.pos.y+direction.y);
+
+	else
+		newPos = new Position(this.person.area.pos.x+direction.x, this.person.area.pos.y+direction.y);
+	
+	console.log("new Pos: (" + newPos.x + "," + newPos.y + ")");
 	for(i = 0; i < OPT_GAME_STEPS; i++)
 	{
 		if(colorsEqual(actPosColor, imageDataToColor(newPos, this.context)))
@@ -80,8 +90,10 @@ Game.prototype.movePerson = function(direction)
 		else
 			return;
 
+		console.log("person: (" + this.person.area.pos.x + " , " + this.person.area.pos.y + ")");
 		//win current lvl
-		if(positionsEqual(this.person.pos, this.mazes[this.curLvl-1].endPos))
+		
+		if(colision(this.person.area, this.mazes[this.curLvl-1].endArea))
 		{
 			//stop timer
 			clearInterval(this.clock);

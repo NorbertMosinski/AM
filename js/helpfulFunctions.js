@@ -148,3 +148,55 @@ function startTimer(duration, display)
     }, 1000);
     return clock;
 }
+
+/**
+Checks if 2 areas colidate with each other concerning their positions.
+@param o1: the first object
+@param o2: the second object
+@return true if the objects colidate, else false.
+NOTE: Each such object has to have an area
+*/
+function colision(a1, a2)
+{
+	var a1Tmp = new Area(a1.pos, new Hitbox(a1.hitbox.width, a1.hitbox.height));
+	var a2Tmp = new Area(a2.pos, new Hitbox(0, 0));
+	var tmp = null;
+	if(a1.pos.x > a2.pos.x)
+	{	
+		a1Tmp.hitbox.width = 0;
+		a2Tmp.hitbox.width = a2.hitbox.width;
+		tmp = a1Tmp; a1Tmp = a2Tmp; a2Tmp = tmp;
+	}
+	console.log( (a1Tmp.pos.x + a1Tmp.hitbox.width) + ">=" + (a2Tmp.pos.x + a2Tmp.hitbox.width));
+	if(a1Tmp.pos.x + a1Tmp.hitbox.width >= a2Tmp.pos.x + a2Tmp.hitbox.width)
+	{	
+		tmp = a1Tmp; a1Tmp = a2Tmp; a2Tmp = tmp;
+		if(a1.pos.y > a2.pos.y)
+		{
+			a1Tmp.hitbox.height = 0;
+			a2Tmp.hitbox.height = a2.hitbox.height;
+			tmp = a1Tmp; a1Tmp = a2Tmp; a2Tmp = tmp;
+		}
+	console.log((a1Tmp.pos.y + a1Tmp.hitbox.height) + ">=" + (a2Tmp.pos.y + a2Tmp.hitbox.height));	
+		if(a1Tmp.pos.y + a1Tmp.hitbox.height >=  a2Tmp.pos.y + a2Tmp.hitbox.height)
+			return true;
+	}
+	
+
+	console.log("endpos: " + a2.pos.x + ", " + a2.pos.y + ")");
+	
+	
+	return false;
+}
+
+/**
+Switches the object references
+@param o1: first object
+@param o2: second object
+*/
+function switchObj(o1, o2)
+{
+	var tmp = o1;
+	o1 = o2;
+	o2 = tmp;
+}
