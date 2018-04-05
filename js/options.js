@@ -3,7 +3,7 @@ const OPT_MAZE_INITTOLERANCE = 0.1;
 //Number of steps to be done when moving the person
 const OPT_GAME_STEPS = 5;
 //Time limit for each level (min)
-const OPT_GAME_TIMELIMIT = 5.25;
+const OPT_GAME_TIMELIMIT = 0.25;
 //Person size x*x in px
 const OPT_PERSON_SIZE = 5;
 /*

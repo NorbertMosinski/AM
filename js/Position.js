@@ -11,7 +11,9 @@ Creates an new position with the same values like pos
 */
 new_Position = function(pos)
 {
-	return new Position(pos.x, pos.y);
+	if(pos != null)
+		return new Position(pos.x, pos.y);
+	return null;
 }
 
 /**
@@ -20,6 +22,9 @@ Adds the value of an position to this position
 */
 Position.prototype.addPos = function(pos)
 {
-	this.x += pos.x;
-	this.y += pos.y;
+	if(pos != null)
+	{
+		this.x += pos.x;
+		this.y += pos.y;
+	}
 }

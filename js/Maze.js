@@ -23,25 +23,25 @@ Maze.prototype.init = function()
 		//begin
 		if(null == this.beginArea.beginPos)
 		{
-			this.beginArea.pos = findColorInLine(new Position(0, 0 + tolerance), new Position(context.canvas.width, 0 + tolerance), CONST_COL_WHITE, context);
+			this.beginArea.setPos(findColorInLine(new Position(0, 0 + tolerance), new Position(context.canvas.width, 0 + tolerance), CONST_COL_WHITE, context));
 
 			//hitbox width begin area
 			if(null != this.beginArea.pos)
 			{
 				var tmpPos = findColorInLine(this.beginArea.pos, new Position(context.canvas.width, this.beginArea.pos.y), CONST_COL_BLACK, context);
-				this.endArea.hitbox.width = tmpPos.x - this.beginArea.pos.x;
+				this.beginArea.setHitbox(new Hitbox(tmpPos.x - this.beginArea.pos.x, 2));
 			}
 		}
 
 		if(null == this.endArea.pos)
 		{
-			this.endArea.pos = findColorInLine(new Position(0, context.canvas.height - tolerance), new Position(context.canvas.width, context.canvas.height - tolerance), CONST_COL_WHITE, context);
+			this.endArea.setPos(findColorInLine(new Position(0, context.canvas.height - tolerance), new Position(context.canvas.width, context.canvas.height - tolerance), CONST_COL_WHITE, context));
 			
 			//hitbox width end area
 			if(null != this.endArea.pos)
 			{
 				var tmpPos = findColorInLine(this.endArea.pos, new Position(context.canvas.width, this.endArea.pos.y), CONST_COL_BLACK, context);
-				this.endArea.hitbox.width = tmpPos.x - this.beginArea.pos.x;
+				this.endArea.setHitbox(new Hitbox(tmpPos.x - this.endArea.pos.x, 2));
 			}		
 		}
 		tolerance++;

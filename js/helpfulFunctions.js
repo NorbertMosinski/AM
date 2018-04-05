@@ -121,6 +121,19 @@ function getButton(id)
 }
 
 /**
+Looks for the video that matches the id.
+@param id: the id of the video
+@return: the video if found, else null
+*/
+function getVideo(id)
+{
+	for(var i in videos)
+		if(videos[i].id == id)
+			return videos[i];
+	return null;
+}
+
+/**
 This function realizes a timer
 @param duration: The timer duration
 @param display: the content where the timer will be displayed

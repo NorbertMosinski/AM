@@ -51,7 +51,7 @@ Game.prototype.initLvl = function(lvl)
 	drawImageOnCanvas(this.mazes[this.curLvl-1].src, this.context);
 
 	//FOR WIN TESTING
-
+	
 	var tmp = new_Position(this.mazes[this.curLvl-1].endArea.pos);
 	tmp.y -=10;
 	this.person.setPos(tmp);

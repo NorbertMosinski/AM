@@ -97,8 +97,13 @@ function navEvent(o)
 	{
 		//CHANGED TO SAVE TIME!
 		case 'P01_boton_iniciar':
-			//changeMainScreenTo("P02");
-			getButton('P06_boton_conteo_1').click();
+			if(getVideo("P11_video").ended)
+				changeMainScreenTo("P03");
+			else
+			{
+				changeMainScreenTo("P11");
+				getVideo("P11_video").play();
+			}
 			break;
 		case 'P01_boton_info':
 			changeMainScreenTo("P07");
