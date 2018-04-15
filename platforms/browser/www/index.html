@@ -1,0 +1,131 @@
+<!--
+TODO:
+-Size + style
+
+Optional:
+-NPC's in labirynth
+-refactor: more performant solution for object colision
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/helpfulFunctions.js"></script>
+	<script type="text/javascript" src="js/Maze.js"></script>
+	<script type="text/javascript" src="js/Position.js"></script>
+	<script type="text/javascript" src="js/Color.js"></script>
+	<script type="text/javascript" src="js/Game.js"></script>
+	<script type="text/javascript" src="js/Person.js"></script>
+	<script type="text/javascript" src="js/options.js"></script>
+	<script type="text/javascript" src="js/Hitbox.js"></script>
+	<script type="text/javascript" src="js/Area.js"></script>
+</head>
+
+<body>
+
+	<div id="P01" name="menu">
+		<input type="image" src="img/Botones/boton_iniciar.png" id="P01_boton_iniciar" class="button"/>
+		<input type="image" src="img/Botones/boton_info.png" id="P01_boton_info" class="button"/>
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-01.png" class="img" id="P01_di-01">	
+	</div>
+
+	<div id="P02" class="hidden" name="after_animation">
+		<input type="image" src="img/Botones/boton_saltar.png" id="P02_boton_saltar" class="button"/>
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-02.png" class="img" id="P02_di-02">	
+	</div>
+
+	<div id="P03" class="hidden" name="before_game_play">
+		<input type="image" src="img/Botones/boton_jugar.png" id="P03_boton_jugar" class="button"/>
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-03.png" class="img" id="P03_di-03">	
+	</div>
+
+	<div id="P04" class="hidden" name="counter_3">
+		<input type="image" src="img/Botones/conteo_3.png" id="P04_boton_conteo_3" class="hidden invisible button"/>
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-04.png" class="img" id="P04_di-04">	
+	</div>
+
+	<div id="P05" class="hidden" name="counter_2">
+		<input type="image" src="img/Botones/conteo_2.png" id="P05_boton_conteo_2" class="invisible button"/>
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-05.png" class="img" id="P05_di-05">
+	</div>
+
+	<div id="P06" class="hidden" name="counter_1">
+		<input type="image" src="img/Botones/conteo_1.png" id="P06_boton_conteo_1" class="invisible button"/>
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-06.png" class="img" id="P06_di-06">	
+	</div>
+
+	<div id="P07" class="hidden" name="info">
+		<input type="image" src="img/Botones/boton_volver.png" id="P07_boton_volver" class="button"/>
+		<input type="image" src="img/Botones/boton_progreso.png" id="P07_boton_progreso" class="button"/>
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-15.png" class="img" id="P07_di-15">	
+	</div>
+
+	<div id="P08" class="hidden" name="progress">
+		<input type="image" src="img/Botones/boton_volver.png" id="P08_boton_volver" class="button"/>
+		<input type="image" src="img/Diagramacion Interfaz/diagramacion interfaz-16.png" class="img" id="P08_di-16">
+		<input type="image" src="img/Niveles/niveles-01.png" class="hidden button" id="P08_boton_lvl01">
+		<input type="image" src="img/Niveles/niveles-02.png" class="hidden button" id="P08_boton_lvl02">
+		<input type="image" src="img/Niveles/niveles-03.png" class="hidden button" id="P08_boton_lvl03">
+		<input type="image" src="img/Niveles/niveles-04.png" class="hidden button" id="P08_boton_lvl04">
+		<input type="image" src="img/Niveles/niveles-05.png" class="hidden button" id="P08_boton_lvl05">
+		<input type="image" src="img/Niveles/niveles-06.png" class="hidden button" id="P08_boton_lvl06">
+		<input type="image" src="img/Niveles/niveles-07.png" class="hidden button" id="P08_boton_lvl07">
+		<input type="image" src="img/Niveles/niveles-08.png" class="hidden button" id="P08_boton_lvl08">
+		<input type="image" src="img/Niveles/niveles-09.png" class="hidden button" id="P08_boton_lvl09">
+		<input type="image" src="img/Niveles/niveles-10.png" class="hidden button" id="P08_boton_lvl10">
+		<input type="image" src="img/Niveles/niveles-11.png" class="hidden button" id="P08_boton_lvl11">
+		<input type="image" src="img/Niveles/niveles-12.png" class="hidden button" id="P08_boton_lvl12">
+		<input type="image" src="img/Niveles/niveles-13.png" class="hidden button" id="P08_boton_lvl13">
+		<input type="image" src="img/Niveles/niveles-14.png" class="hidden button" id="P08_boton_lvl14">
+		<input type="image" src="img/Niveles/niveles-15.png" class="hidden button" id="P08_boton_lvl15">
+	</div>
+
+	<div id="P09" class="hidden" name="win">
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-13.png" class="img" id="P09_di-13">	
+	</div>
+
+	<div id="P10" class="hidden" name="lose">
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-14.png" class="img" id="P10_di-14">	
+	</div>
+
+	<div id="P11" class="hidden" name="animation">
+		<!-- the autoplay tag doesn't work od iphone or ipad! -->
+		<video class="video" id="P11_video">
+			<source src="img/Animacion.mp4" type="video/mp4">
+		</video>
+	</div>
+
+	<div id="P12" class="hidden">
+		<img src="img/Diagramacion Interfaz/diagramacion interfaz-07.png" class="img" id="P12_di-07">	
+	</div>
+
+	<!--When adding new mazes, make sure they got the right size and the walls are black, while the path is white!-->
+	<div id="P13" name="maze" class="hidden">
+		<canvas id="P13_Canvas"></canvas>
+		<img src="img/Ciclo de caminata personaje/Person.png" id="P13_person">
+		<img src="img/Mazes/maze01.png" class="hidden img" id="P13_maze01">
+		<img src="img/Mazes/maze02.png" class="hidden img" id="P13_maze02">
+		<img src="img/Mazes/maze03.png" class="hidden img" id="P13_maze03">
+		<img src="img/Mazes/maze04.png" class="hidden img" id="P13_maze04">
+		<img src="img/Mazes/maze05.png" class="hidden img" id="P13_maze05">
+		<img src="img/Mazes/maze06.png" class="hidden img" id="P13_maze06">
+		<img src="img/Mazes/maze07.png" class="hidden img" id="P13_maze07">
+		<img src="img/Mazes/maze08.png" class="hidden img" id="P13_maze08">
+		<img src="img/Mazes/maze09.png" class="hidden img" id="P13_maze09">
+		<img src="img/Mazes/maze10.png" class="hidden img" id="P13_maze10">
+		<img src="img/Mazes/maze11.png" class="hidden img" id="P13_maze11">
+		<img src="img/Mazes/maze12.png" class="hidden img" id="P13_maze12">
+		<img src="img/Mazes/maze13.png" class="hidden img" id="P13_maze13">
+		<img src="img/Mazes/maze14.png" class="hidden img" id="P13_maze14">
+		<img src="img/Mazes/maze15.png" class="hidden img" id="P13_maze15">
+		<input type="image" src="img/Botones/boton_fake.png" id="P13_boton_win" class="invisible button"/>
+		<input type="image" src="img/Botones/boton_fake.png" id="P13_boton_lose" class="invisible button"/>
+		<span id="P13_time">05:00</span>
+	</div>
+
+</body>
+</html>
