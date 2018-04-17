@@ -98,11 +98,11 @@ Drawns an image on the given canvas context. Als sets the needed options.
 function drawImageOnCanvas(src, context)
 {
 	//initialize context of canvas
-	context.canvas.width = src.width;
-	context.canvas.height = src.height;
+	context.canvas.width = OPT_CANVAS_WIDTH;
+	context.canvas.height = OPT_CANVAS_HEIGHT;
 
 	//draw the image on canvas	
-	context.drawImage(src, 0, 0, src.width, src.height);
+	context.drawImage(src, 0, 0, src.width, src.height, 0, 0, OPT_CANVAS_WIDTH, OPT_CANVAS_HEIGHT);
 }
 
 /**

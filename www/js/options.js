@@ -6,12 +6,10 @@ const OPT_GAME_STEPS = 5;
 const OPT_GAME_TIMELIMIT = 5.00;
 //Person size x*x in px
 const OPT_PERSON_SIZE = 5;
-/*
 //Canvas width
-const OPT_CANVAS_WIDTH = ;
+const OPT_CANVAS_WIDTH = 358;
 //Canvas height
-const OPT_CANVAS_HEIGHT = ;
-*/
+const OPT_CANVAS_HEIGHT = 615;
 
 //Top direction
 const CONST_POS_TOP = new Position(0, -1);
