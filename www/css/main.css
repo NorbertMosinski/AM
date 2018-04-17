@@ -1,25 +1,8 @@
-html
+head, body, div
 {
-	background: white;
-    /*Temporary changed*/
-	width: 50px;
-	height: 200px;
-
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
-
-}
-
-head, body, div
-{
-    position: relative;
-	background: white;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	width: 50px;
-	height: 225px;
 }
 
 .hidden
@@ -37,38 +20,51 @@ head, body, div
 	position: absolute;
 }
 
-/*Calculated relative to the standard size - all buttons*/
+
+.background
+{
+    width: 370px;
+    height: 620px;
+}
+
+.lvlB
+{
+    width: 58px;
+    height: 56px;
+}
+
+
 #P01_boton_info
 {
-/*	width: 227.76px;
-	height: 130.08px;*/
-	left: 52.7%;
-	top: 3%;
+	width: 118px;
+	height: 65px;
+	left: 265px;
+	top: 15px;
 }
 
 #P01_boton_iniciar
 {
-/*    width: 331.44px;
-    height: 131.28px;*/
-    left: 20.5%;
-    top: 75.4%;
+    width: 163px;
+    height: 64px;
+    left: 104px;
+    top: 465px;
 }
 
 /*TODO*/
 #P02_boton_saltar
 {
-/*    width: 156px;
-    height: 109.92px;*/
-    left: 1;
-    top: 1;
+    width: 85px;
+    height: 55px;
+    left: 277px;
+    top: 564px;
 }
 
 #P03_boton_jugar
 {
-/*    width: 321.6px;
-    height: 155.52px;*/
-    left: 21.7%;
-    top: 79.2%;
+    width: 165px;
+    height: 75px;
+    left: 107px;
+    top: 492px;
 }
 
 #P04_boton_conteo_3
@@ -97,132 +93,124 @@ head, body, div
 
 #P07_boton_volver
 {
-/*    width: 238.08px;
-    height: 175.92px;*/
-    left: 25.3%;
-    top: 81.3%;
+    width: 130px;
+    height: 90px;
+    left: 122px;
+    top: 501px;
 }
 
 /*TODO*/
 #P07_boton_progreso
 {
-    width: 164.88px;
-    height: 108.72px;
-    left: 1px;
-    top: 1px;
+    width: 60px;
+    height: 48px;
+    left: 290px;
+    top: 10px;
 }
 
 #P08_boton_volver
 {
-/*    width: 238.08px;
-    height: 175.92px;*/
-    left: 25.4%;
-    top: 81.4%;
+    width: 119px;
+    height: 84px;
+    left: 128px;
+    top: 503px;
 }
 
 #P08_boton_lvl01
 {
-    position: absolute;
-    left: 3200px;
-    top: 0px;
+    left: 71px;
+    top: 140px;
 }
 
 #P08_boton_lvl02
 {
-    position: absolute;
-    left: 3200px;
-    top: 500px;
+    left: 150px;
+    top: 140px;
 }
 
 #P08_boton_lvl03
 {
-    position: absolute;
-    left: 3200px;
-    top: 1000px;
+    left: 229px;
+    top: 140px;
 }
 
 #P08_boton_lvl04
 {
-    position: absolute;
-    left: 3200px;
-    top: 1500px;
+    left: 71px;
+    top: 210px;
 }
 
 #P08_boton_lvl05
 {
-    position: absolute;
-    left: 3200px;
-    top: 2000px;
+    left: 150px;
+    top: 210px;
 }
 
 #P08_boton_lvl06
 {
-    position: absolute;
-    left: 3200px;
-    top: 2500px;
+    left: 229px;
+    top: 210px;
 }
 
 #P08_boton_lvl07
 {
-    position: absolute;
-    left: 3200px;
-    top: 3000px;
+    left: 71px;
+    top: 280px;
 }
 
 #P08_boton_lvl08
 {
-    position: absolute;
-    left: 3200px;
-    top: 3500px;
+    left: 150px;
+    top: 280px;
 }
 
 #P08_boton_lvl09
 {
-    position: absolute;
-    left: 3200px;
-    top: 4000px;
+    left: 229px;
+    top: 280px;
 }
 
 #P08_boton_lvl10
 {
-    position: absolute;
-    left: 3200px;
-    top: 4500px;
+    left: 71px;
+    top: 357px;
 }
 
 #P08_boton_lvl11
 {
-    position: absolute;
-    left: 3200px;
-    top: 5000px;
+    left: 150px;
+    top: 357px;
 }
 
 #P08_boton_lvl12
 {
-    position: absolute;
-    left: 3200px;
-    top: 5500px;
+    left: 229px;
+    top: 357px;
 }
 
 #P08_boton_lvl13
 {
-    position: absolute;
-    left: 3200px;
-    top: 6000px;
+    left: 71px;
+    top: 427px;
 }
 
 #P08_boton_lvl14
 {
-    position: absolute;
-    left: 3200px;
-    top: 6500px;
+    left: 150px;
+    top: 427px;
 }
 
 #P08_boton_lvl15
 {
+    left: 229px;
+    top: 427px;
+}
+
+#P11_video
+{  
     position: absolute;
-    left: 3200px;
-    top: 7000px;
+    width: 100%;
+    height: 100%;
 }
 
 #P13_person
