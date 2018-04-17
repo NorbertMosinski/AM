@@ -185,3 +185,22 @@ function colision(a1, a2)
 		return true;
 	return false;
 }
+
+/**
+Calculates the index of an array with the minimum value
+@param array: the array containing the values
+@return the index of the array containing the minimum value 
+*/
+function min(array)
+{
+	var ret = 0;
+	var min = array[0];
+
+	for(var i = 0; i < array.length; i++)
+		if(array[i] < min)
+		{
+			min = array[i];
+			ret = i;
+		}
+	return ret;
+}

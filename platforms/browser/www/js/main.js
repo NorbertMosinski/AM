@@ -134,7 +134,7 @@ function navEvent(o)
 			changeMainScreenTo("P13");
 			}, 2000);
 			game.initLvl(game.curLvl);
-			setKeyboardListeners();
+			setControlListeners();
 			break;
 		case 'P07_boton_volver':
 			changeMainScreenTo("P01");
@@ -158,15 +158,15 @@ function navEvent(o)
 			//eventListener for video still active!
 			break;
 		case 'P13_boton_win':
-			window.onkeydown = null;
+			removeControlListeners();
 			changeMainScreenTo("P09");
 			window.setTimeout(function(){
 				changeMainScreenTo("P01");
 			}, 4000);
 			break;
 		case 'P13_boton_lose':
-			window.onkeydown = null;
-			changeMainScreenTo("P09");
+			removeControlListeners();
+			changeMainScreenTo("P10");
 			window.setTimeout(function(){
 				changeMainScreenTo("P01");
 			}, 4000);
@@ -176,15 +176,38 @@ function navEvent(o)
 			{
 				changeMainScreenTo("P13");
 				game.initLvl(parseInt(o.substring(o.length-2, o.length)));
-				setKeyboardListeners();
+				setControlListeners();
 			}
 			break;
 	}
 }
 
-function setKeyboardListeners()
+function setControlListeners()
 {
-
+	document.addEventListener("click", function(e)
+	{
+  		var left = e.pageX;
+		var right = OPT_CANVAS_WIDTH - left;
+		var top = e.pageY;
+		var bot = OPT_CANVAS_HEIGHT - top;
+		
+		switch(min([left, right, top, bot]))
+		{
+			case 0:
+				game.movePerson(CONST_POS_LEFT);
+				break;
+			case 1:
+				game.movePerson(CONST_POS_RIGHT);
+				break;
+			case 2:
+				game.movePerson(CONST_POS_TOP);
+				break;
+			case 3:
+				game.movePerson(CONST_POS_BOT);
+				break;
+		}
+	});
+	
 	window.onkeydown = function(e)
 	{
 		var key = e.keyCode;
@@ -204,4 +227,10 @@ function setKeyboardListeners()
 				break;
 		}
 	};
+}
+
+function removeControlListeners()
+{
+	window.onkeydown = null;
+	window.removeEventListener("click");
 }

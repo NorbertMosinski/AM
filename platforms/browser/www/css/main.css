@@ -1,4 +1,4 @@
-head, body, div
+html, head, body, div
 {
 	margin: 0px;
 	padding: 0px;
@@ -13,6 +13,15 @@ head, body, div
 .invisible
 {
 	visibility: hidden;
+}
+
+.fake
+{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    top: 1px;
+    left: 1px;
 }
 
 .button
@@ -50,7 +59,6 @@ head, body, div
     top: 465px;
 }
 
-/*TODO*/
 #P02_boton_saltar
 {
     width: 85px;

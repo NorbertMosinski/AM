@@ -15,7 +15,7 @@ Person.prototype.setPos = function(pos)
 {
 	if(null != pos)
 	{
-		this.area.pos = new Position(pos.x, pos.y);
+		this.area.setPos(new Position(pos.x, pos.y));
 		this.updateViewStyle();
 	}
 }
@@ -27,8 +27,7 @@ Moves the person in the given direction by the given steps
 */
 Person.prototype.move = function(direction, steps)
 {
-	this.area.pos.x += direction.x * steps;
-	this.area.pos.y += direction.y * steps;
+	this.area.setPos(new Position(this.area.pos.x + (direction.x * steps), this.area.pos.y + (direction.y * steps)));
 	this.updateViewStyle();
 }
 
