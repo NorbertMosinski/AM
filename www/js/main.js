@@ -132,9 +132,9 @@ function navEvent(o)
 		case 'P06_boton_conteo_1':
 			window.setTimeout(function(){
 			changeMainScreenTo("P13");
+			setControlListeners();
 			}, 2000);
 			game.initLvl(game.curLvl);
-			setControlListeners();
 			break;
 		case 'P07_boton_volver':
 			changeMainScreenTo("P01");
@@ -184,29 +184,7 @@ function navEvent(o)
 
 function setControlListeners()
 {
-	document.addEventListener("click", function(e)
-	{
-  		var left = e.pageX;
-		var right = OPT_CANVAS_WIDTH - left;
-		var top = e.pageY;
-		var bot = OPT_CANVAS_HEIGHT - top;
-		
-		switch(min([left, right, top, bot]))
-		{
-			case 0:
-				game.movePerson(CONST_POS_LEFT);
-				break;
-			case 1:
-				game.movePerson(CONST_POS_RIGHT);
-				break;
-			case 2:
-				game.movePerson(CONST_POS_TOP);
-				break;
-			case 3:
-				game.movePerson(CONST_POS_BOT);
-				break;
-		}
-	});
+	document.addEventListener("click", handleMouseClick, true);
 	
 	window.onkeydown = function(e)
 	{
@@ -232,5 +210,29 @@ function setControlListeners()
 function removeControlListeners()
 {
 	window.onkeydown = null;
-	window.removeEventListener("click");
+	document.removeEventListener("click", handleMouseClick, true);
 }
+
+var handleMouseClick = function(e)
+{
+ 	var left = e.pageX;
+	var right = OPT_CANVAS_WIDTH - left;
+	var top = e.pageY;
+	var bot = OPT_CANVAS_HEIGHT - top;
+	console.log("touched");
+	switch(min([left, right, top, bot]))
+	{
+		case 0:
+			game.movePerson(CONST_POS_LEFT);
+			break;
+		case 1:
+			game.movePerson(CONST_POS_RIGHT);
+			break;
+		case 2:
+			game.movePerson(CONST_POS_TOP);
+			break;
+		case 3:
+			game.movePerson(CONST_POS_BOT);
+			break;
+	}
+};

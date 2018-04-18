@@ -25,9 +25,9 @@ Creates the mazes for the game
 */
 Game.prototype.createMazes = function()
 {	
-	for(i in images)
+	for(var i in images)
 		if(images[i].id.substring(0, 8) == 'P13_maze')
-			this.mazes.push(new Maze(images[i]));
+			this.mazes[parseInt(images[i].id.substring(images[i].id.length-2, images[i].id.length))-1] = new Maze(images[i]);		
 }
 
 /**
@@ -52,14 +52,14 @@ Game.prototype.initLvl = function(lvl)
 	drawImageOnCanvas(this.mazes[this.curLvl-1].src, this.context);
 
 	//FOR WIN TESTING
-	/*
+	
 	var tmp = new_Position(this.mazes[this.curLvl-1].endArea.pos);
 	tmp.y -=10;
 	this.person.setPos(tmp);
-	*/
+	
 
 	//set person at maze begin
-	this.person.setPos(this.mazes[this.curLvl-1].beginArea.mid);
+	//this.person.setPos(this.mazes[this.curLvl-1].beginArea.mid);
 	
 	this.clock = startTimer(time, timeDisplay);
 }
