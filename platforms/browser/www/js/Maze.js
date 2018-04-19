@@ -1,18 +1,16 @@
 /**
-Creates a new Maze object.
-@param src: the image source of the maze
+Maze constructor.
+@param src: Referance to the image source of the maze
 */
 var Maze = function(src)
 {
-	console.log("maze");
 	//maze image
 	this.src = src;
 	//maze begin
 	this.beginArea = new Area(null, new Hitbox(null, 2));
 	//maze end
 	this.endArea = new Area(null, new Hitbox(null, 2));
-	//color of the maze walls
-	this.wallColor = null;
+
 	this.init();
 }
 
@@ -28,8 +26,6 @@ Maze.prototype.init = function()
 
 	drawImageOnCanvas(this.src, context);
 
-	//determine color of walls
-	//this.wallColor = imageDataToColor(findDifferentColorInLine(new Position(OPT_CANVAS_WIDTH/2, OPT_CANVAS_HEIGHT/2), new Position(OPT_CANVAS_WIDTH, OPT_CANVAS_HEIGHT/2), CONST_COL_WHITE, context), context);
 	while((null == this.beginArea.pos || null == this.endArea.pos) && parseInt(context.canvas.height*OPT_MAZE_INITTOLERANCE) >= tolerance)
 	{
 		//begin

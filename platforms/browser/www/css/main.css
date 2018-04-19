@@ -12,12 +12,13 @@ html, head, body, div
 
 .invisible
 {
-	visibility: hidden;
+	opacity: 0.0;
 }
 
 .fake
 {
     position: absolute;
+    visibility: hidden;
     width: 1px;
     height: 1px;
     top: 1px;
@@ -107,11 +108,10 @@ html, head, body, div
     top: 501px;
 }
 
-/*TODO*/
 #P07_boton_progreso
 {
     width: 60px;
-    height: 48px;
+    height: 46px;
     left: 290px;
     top: 10px;
 }

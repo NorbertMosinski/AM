@@ -21,6 +21,14 @@ const CONST_POS_BOT = new Position(0, 1);
 const CONST_POS_LEFT = new Position(-1, 0);
 //Right direction
 const CONST_POS_RIGHT = new Position(1, 0);
+//Top-left direction
+const CONST_POS_TOPLEFT = new Position(-1, -1);
+//Top-right direction
+const CONST_POS_TOPRIGHT = new Position(1, -1);
+//Bot-left direction
+const CONST_POS_BOTLEFT = new Position(-1, 1);
+//Bot-right direction
+const CONST_POS_BOTRIGHT = new Position(1, 1);
 //White color
 const CONST_COL_WHITE = new Color(255, 255, 255);
 //Black color

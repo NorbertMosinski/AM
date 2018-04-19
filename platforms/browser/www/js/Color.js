@@ -1,8 +1,8 @@
 /**
-Creates an new Color object.
-@param r: the red color value
-@param g: the green color value
-@param b: the blue color value
+Color constructor.
+@param r: Number represanting the red color value
+@param g: Number represanting the green color value
+@param b: Number represanting the blue color value
 */
 var Color = function (r, g, b)
 {
@@ -12,9 +12,22 @@ var Color = function (r, g, b)
 }
 
 /**
-Checks if the passed color objects all equal this one.
-@param colors: the array containing the color objects to be compared to this
-@return true if all are equal, else false
+Creates a copy of the passed color.
+@param color: Color object to be cloned
+@return Color object that was cloned , NULL if the passed object is null
+*/
+Color.prototype.new_Color = function(color)
+{
+	if(null == color)
+		return null;
+
+	return new Color(color.r, color.g, color.b);
+}
+
+/**
+Checks if the passed colors all equal this one.
+@param colors: Array containing the Color objects to be compared to this
+@return TRUE if all are equal , FALSE if not
 */
 Color.prototype.equals = function(colors)
 {

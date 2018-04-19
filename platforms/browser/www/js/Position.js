@@ -10,9 +10,9 @@ var Position = function (x, y)
 }
 
 /**
-Creates a new position with the same values like pos.
-@param pos: the position to be cloned
-@return: new Position object with same values as pos or null, if the passed pos is null
+Creates a copy of the passed position.
+@param pos: Position object to be cloned
+@return: Position object that was cloned , NULL if the passed pos was null
 */
 new_Position = function(pos)
 {
@@ -24,7 +24,7 @@ new_Position = function(pos)
 /**
 Adds the value of the passed position objects to this position. No effect if pos is null.
 @param positions: the array of position objects containing the values to be added to this position
-@return this object
+@return This object
 */
 Position.prototype.addPos = function(positions)
 {
@@ -38,9 +38,9 @@ Position.prototype.addPos = function(positions)
 }
 
 /**
-Checks if the passed position objects equals this one
+Checks if the passed position objects equals this one.
 @param positions: array containing the position objects to be compared to this
-@return true if all are equal, else false
+@return TRUE if all are equal, FALSE if not
 */
 Position.prototype.equals = function(positions)
 {

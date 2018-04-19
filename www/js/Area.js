@@ -1,7 +1,7 @@
 /**
-Creates an new area.
-@param pos: the position of the upper left corner of the area
-@param hitbox: the hitbox of the area
+Area constructor.
+@param pos: Position object representing the upper left corner of the area
+@param hitbox: Hitbox object representing the hitbox of the area
 */
 var Area = function(pos, hitbox)
 {
@@ -16,6 +16,19 @@ var Area = function(pos, hitbox)
 }
 
 /**
+Creates a copy of the passed area.
+@param area: Area object to be cloned
+@return a copy of the Area object, null if the passed object is null
+*/
+Color.prototype.new_Area = function(area)
+{
+	if(null == area)
+		return null;
+
+	return new Area(area.pos, area.hitbox);
+}
+
+/**
 Updates the mid of the area concerning the pos and hitbox.
 */
 Area.prototype.updateMid = function()
@@ -27,8 +40,8 @@ Area.prototype.updateMid = function()
 }
 
 /**
-Sets he position of the area (upper left corner) and updates the mid of the area.
-@param pos: The new position
+Sets the position of the area (upper left corner) and updates the mid of the area.
+@param pos: Position object to be set for this area
 */
 Area.prototype.setPos = function(pos)
 {
@@ -38,7 +51,7 @@ Area.prototype.setPos = function(pos)
 
 /**
 Sets the hitbox of the area and updates the mid of the area.
-@param hitbox: the new hitbox
+@param hitbox: Hitbox object to be set for this area
 */
 Area.prototype.setHitbox = function(hitbox)
 {
@@ -48,8 +61,8 @@ Area.prototype.setHitbox = function(hitbox)
 
 /**
 Checks if the passed area objects all equal this one.
-@param areas: array containing the the area objects to be compared to this
-@return true if all are equal, else false
+@param areas: Array containing the the area objects to be compared to this
+@return TRUE if all are equal , FALSE if not
 */
 Area.prototype.equals = function(areas)
 {

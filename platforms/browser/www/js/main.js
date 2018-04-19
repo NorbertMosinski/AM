@@ -88,7 +88,7 @@ function events()
 
 /**
 Manages the events caused by navigation like click or video end.
-@param o: the id of the object that caused the event
+@param o: String representing the id of the object that caused the event
 */
 function navEvent(o)
 {
@@ -221,6 +221,7 @@ function removeControlListeners()
 
 /**
 Function for handling a mouse click during the game.
+@param e: Event that caused the mouse click
 */
 var handleMouseClick = function(e)
 {

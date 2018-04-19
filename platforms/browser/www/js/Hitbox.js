@@ -1,7 +1,7 @@
 /**
-Creates an new Hitbox object
-@param width: the width of the hitbox
-@param height: the height of the hitbox
+Hitbox constructor.
+@param width: Number represanting the width of the hitbox
+@param height: Number represanting the height of the hitbox
 */
 var Hitbox = function(width, height)
 {
@@ -10,9 +10,9 @@ var Hitbox = function(width, height)
 }
 
 /**
-Returns an new hitbox object containing the same value as the passed hitbox object.
-@param hitbox: The hitbox object to be cloned
-@return: a copy of the passed hitbox object or null, if the passed object is null
+Creates a copy of the passed hitbox.
+@param hitbox: Hitbox object to be cloned
+@return: Hitbox object that was cloned , NULL if the passed object was null
 */
 function new_Hitbox(hitbox)
 {
@@ -22,9 +22,9 @@ function new_Hitbox(hitbox)
 }
 
 /**
-Checks if the passed hitbox objects all equal this one.
-@param hitboxes: array containing the the hitbox objects to be compared to this one
-@return true if all are equal, else false
+Checks if the passed Hitbox objects all equal this one.
+@param hitboxes: Array containing the the Hitbox objects to be compared to this one
+@return TRUE if all are equal , FALSE if not
 */
 Hitbox.prototype.equals = function(hitboxes)
 {

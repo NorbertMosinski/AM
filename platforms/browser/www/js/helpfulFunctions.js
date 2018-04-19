@@ -1,6 +1,6 @@
 /**
 Shows all containers on the main screen u want to switch to.
-@param p_id_new: All containers beginning with this string will be shown, all others hidden
+@param p_id_new: String. All containers beginning with this string will be shown, all others hidden
 */
 function changeMainScreenTo(p_id_new)
 {
@@ -17,8 +17,8 @@ function changeMainScreenTo(p_id_new)
 
 /**
 Converts a string like "200px" to number.
-@param src: the source string
-@return the number
+@param src: String source
+@return Number created from the string
 */
 function pxToValue(src)
 {
@@ -28,11 +28,11 @@ function pxToValue(src)
 /**
 Looks for a specific color in a line in the canvas context. 
 If the start- and endposition are not in the same line, the function will be useless.
-@param posBegin: the start position
-@param posEnd: the end position
-@param color: the color the function will be looking for
-@param context: the canvas context containing the drawn image 
-@return: the position of the color if found, null if not
+@param posBegin: Position object representing the start
+@param posEnd: Position object representing the end
+@param color: Color object that the function will be looking for
+@param context: Context object of the canvas containing the drawn image 
+@return: Position object representing the position of the color if found , NULL if not
 */
 function findSpecificColorInLine(posBegin, posEnd, color, context)
 {
@@ -54,11 +54,11 @@ function findSpecificColorInLine(posBegin, posEnd, color, context)
 /**
 Looks for a color in a line that is different from the passed color as an argument in the canvas context. 
 If the start- and endposition are not in the same line, the function will be useless.
-@param posBegin: the start position
-@param posEnd: the end position
-@param color: the function will look for a color diferent from this color
-@param context: the canvas context containing the drawn image 
-@return: the position of the color if found, null if not
+@param posBegin: Position object representing the start
+@param posEnd: Position object representing the end
+@param color: Color object representing the different color that the function will be looking for
+@param context: Context object of the canvas containing the drawn image 
+@return: Position object representing the position of the different color if found , NULL if not
 */
 function findDifferentColorInLine(posBegin, posEnd, color, context)
 {
@@ -80,9 +80,9 @@ function findDifferentColorInLine(posBegin, posEnd, color, context)
 
 /**
 Gives the color of the canvas context at the given position.
-@param pos: the position
-@param context: the canvas context
-@return: the color at the given position
+@param pos: Position object
+@param context: Context object of the canvas
+@return: Color object representing the color at the given position
 */
 function imageDataToColor(pos, context)
 {
@@ -91,8 +91,8 @@ function imageDataToColor(pos, context)
 
 /**
 Draws an image on the given canvas context and sets the size of the canvas.
-@param src: the source of the image
-@param context: the context of the canvas
+@param src: Reference to the source of the image
+@param context: Context object of the canvas
 */
 function drawImageOnCanvas(src, context)
 {
@@ -106,8 +106,8 @@ function drawImageOnCanvas(src, context)
 
 /**
 Looks for the button that matches the id.
-@param id: the id of the button
-@return: the button if found, else null
+@param id: String representing the id of the button
+@return: Reference to the button if found , NULL if not
 */
 function getButton(id)
 {
@@ -119,8 +119,8 @@ function getButton(id)
 
 /**
 Looks for the video that matches the id.
-@param id: the id of the video
-@return: the video if found, else null
+@param id: String representing the id of the video
+@return: Reference to the video if found , NULL if not
 */
 function getVideo(id)
 {
@@ -132,9 +132,9 @@ function getVideo(id)
 
 /**
 This function realizes a timer.
-@param duration: The timer duration
-@param display: the content where the timer will be displayed
-@return: the clock object
+@param duration: String representing the timer duration
+@param display: DIV content where the timer will be displayed
+@return: Reference to the clock
 */
 function startTimer(duration, display) 
 {
@@ -161,9 +161,9 @@ function startTimer(duration, display)
 
 /**
 Checks if 2 areas colidate with each other concerning their positions and hitboxes.
-@param o1: the first object
-@param o2: the second object
-@return true if the objects colidate, else false
+@param o1: Area object representing the first object for comparison
+@param o2: Area object representing the second object for comparison
+@return TRUE if the objects colidate , FALSE if not
 NOTE: Each such object passed to this function has to have an area.
 */
 function colision(a1, a2)
@@ -187,8 +187,8 @@ function colision(a1, a2)
 
 /**
 Calculates the index of an array with the minimum value.
-@param array: the array containing the values
-@return the index of the array containing the minimum value 
+@param array: Array object containing the values
+@return Number representing the index of the array containing the minimum value 
 */
 function min(array)
 {

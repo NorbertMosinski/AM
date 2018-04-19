@@ -1,5 +1,5 @@
 /**
-Creates an new Game object.
+Game constructor.
 */
 var Game = function()
 {
@@ -37,7 +37,7 @@ Game.prototype.createMazes = function()
 
 /**
 Initializes the given level.
-@param lvl: the level to be initialized
+@param lvl: Number representing the level to be initialized
 */
 Game.prototype.initLvl = function(lvl)
 {
@@ -71,7 +71,7 @@ Game.prototype.initLvl = function(lvl)
 
 /**
 Moves the person in the given direction if possible.
-@param direction: the direction to move the person to as pos object
+@param direction: Position object represanting the direction to move the person to
 */
 Game.prototype.movePerson = function(direction)
 {	
@@ -100,9 +100,9 @@ Game.prototype.movePerson = function(direction)
 }
 
 /**
-Checks if the person can move one step in the given direction
-@param direction: the direction to move the person to
-@return true if movement possible, else false
+Checks if the person can move one step in the given direction.
+@param direction: Position object represanting the direction to move the person to
+@return TRUE if movement possible, FALSE if not 
 */
 Game.prototype.personCanMove = function(direction)
 {
@@ -111,8 +111,8 @@ Game.prototype.personCanMove = function(direction)
 			return true;
 		else
 			return false;
-		
-	if(imageDataToColor(this.person.area.pos, this.context).equals([ //act upper left corner
+
+	if(imageDataToColor(this.person.area.pos, this.context).equals([ //actual upper left corner
 		imageDataToColor(new_Position(this.person.area.pos).addPos([direction]), this.context), //new upper left corner
 		imageDataToColor(new_Position(this.person.area.pos).addPos([direction, new Position(this.person.area.hitbox.width-1, 0)]), this.context), //new upper right corner
 		imageDataToColor(new_Position(this.person.area.pos).addPos([direction, new Position(0, this.person.area.hitbox.height-1)]), this.context), //new bottom left corner
