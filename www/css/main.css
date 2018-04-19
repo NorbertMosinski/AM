@@ -107,11 +107,10 @@ html, head, body, div
     top: 501px;
 }
 
-/*TODO*/
 #P07_boton_progreso
 {
     width: 60px;
-    height: 48px;
+    height: 46px;
     left: 290px;
     top: 10px;
 }
