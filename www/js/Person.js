@@ -5,6 +5,8 @@ var Person = function(src, area)
 	//persons area
 	this.area = new Area(area.pos, area.hitbox);
 	this.updateViewStyle();
+	this.src.style.width = OPT_PERSON_SIZE + "px";
+	this.src.style.height = OPT_PERSON_SIZE + "px";
 }
 
 /**

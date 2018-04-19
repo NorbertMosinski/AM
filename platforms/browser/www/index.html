@@ -1,16 +1,19 @@
 <!--
 TODO:
--Right labirynth
--Labirynth richtige Reihenfolge
--Info bearbeiten
--Alles in englisch
--Fehlerhafte Bilder anpassen (ausrufezeichenbutton)
--all check and correct
-
+-Edit informations of background picture
+-incorrect pictures correct
+-Refactor
+-All check and correct
+-All in one file
 
 Optional:
+-move by holding click button
 -NPC's in labirynth
--refactor: more performant solution for object colision
+-options site
+-difficulties
+-Refactor: more performant solution for object colision
+-Debug functions
+-look for labirynth beginning at the side
 -->
 
 <!DOCTYPE html>
@@ -111,7 +114,7 @@ Optional:
 
 	<!--When adding new mazes, make sure they got the right size and the walls are black, while the path is white!-->
 	<div id="P13" name="maze" class="hidden">
-		<canvas id="P13_Canvas"></canvas>
+		<canvas id="P13_canvas"></canvas>
 		<img src="img/Ciclo de caminata personaje/Person.png" id="P13_person">
 		<img src="img/Mazes/maze01.png" class="hidden img" id="P13_maze01">
 		<img src="img/Mazes/maze02.png" class="hidden img" id="P13_maze02">
@@ -119,6 +122,7 @@ Optional:
 		<img src="img/Mazes/maze04.png" class="hidden img" id="P13_maze04">
 		<img src="img/Mazes/maze05.png" class="hidden img" id="P13_maze05">
 		<img src="img/Mazes/maze06.png" class="hidden img" id="P13_maze06">
+		<!--
 		<img src="img/Mazes/maze07.png" class="hidden img" id="P13_maze07">
 		<img src="img/Mazes/maze08.png" class="hidden img" id="P13_maze08">
 		<img src="img/Mazes/maze09.png" class="hidden img" id="P13_maze09">
@@ -128,6 +132,7 @@ Optional:
 		<img src="img/Mazes/maze13.png" class="hidden img" id="P13_maze13">
 		<img src="img/Mazes/maze14.png" class="hidden img" id="P13_maze14">
 		<img src="img/Mazes/maze15.png" class="hidden img" id="P13_maze15">
+		-->
 		<input type="image" src="img/Botones/boton_fake.png" id="P13_boton_win" class="fake invisible button"/>
 		<input type="image" src="img/Botones/boton_fake.png" id="P13_boton_lose" class="fake invisible button"/>
 		<span id="P13_time">05:00</span>

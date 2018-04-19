@@ -10,7 +10,7 @@ var containers = [];
 var game;
 
 /**
-The first function to be called by starting the application
+The first function to be called by starting the application.
 */
 window.onload = function()
 {
@@ -18,7 +18,7 @@ window.onload = function()
 }
 
 /**
-Initializes the variables and events and other things needed for the functionality
+Initializes the variables and events and other things needed for the functionality.
 */
 function init()
 {
@@ -87,7 +87,7 @@ function events()
 }
 
 /**
-Manages the events caused by navigation like click or video enden.
+Manages the events caused by navigation like click or video end.
 @param o: the id of the object that caused the event
 */
 function navEvent(o)
@@ -132,9 +132,9 @@ function navEvent(o)
 		case 'P06_boton_conteo_1':
 			window.setTimeout(function(){
 			changeMainScreenTo("P13");
+			setControlListeners();
 			}, 2000);
 			game.initLvl(game.curLvl);
-			setControlListeners();
 			break;
 		case 'P07_boton_volver':
 			changeMainScreenTo("P01");
@@ -182,31 +182,12 @@ function navEvent(o)
 	}
 }
 
+/**
+Activates the listeners needed for game control during the play.
+*/
 function setControlListeners()
 {
-	document.addEventListener("click", function(e)
-	{
-  		var left = e.pageX;
-		var right = OPT_CANVAS_WIDTH - left;
-		var top = e.pageY;
-		var bot = OPT_CANVAS_HEIGHT - top;
-		
-		switch(min([left, right, top, bot]))
-		{
-			case 0:
-				game.movePerson(CONST_POS_LEFT);
-				break;
-			case 1:
-				game.movePerson(CONST_POS_RIGHT);
-				break;
-			case 2:
-				game.movePerson(CONST_POS_TOP);
-				break;
-			case 3:
-				game.movePerson(CONST_POS_BOT);
-				break;
-		}
-	});
+	document.addEventListener("click", handleMouseClick, true);
 	
 	window.onkeydown = function(e)
 	{
@@ -229,8 +210,38 @@ function setControlListeners()
 	};
 }
 
+/**
+Removes the event listeners used for game control during the game.
+*/
 function removeControlListeners()
 {
 	window.onkeydown = null;
-	window.removeEventListener("click");
+	document.removeEventListener("click", handleMouseClick, true);
 }
+
+/**
+Function for handling a mouse click during the game.
+*/
+var handleMouseClick = function(e)
+{
+ 	var left = e.pageX;
+	var right = OPT_CANVAS_WIDTH - left;
+	var top = e.pageY;
+	var bot = OPT_CANVAS_HEIGHT - top;
+	
+	switch(min([left, right, top, bot]))
+	{
+		case 0:
+			game.movePerson(CONST_POS_LEFT);
+			break;
+		case 1:
+			game.movePerson(CONST_POS_RIGHT);
+			break;
+		case 2:
+			game.movePerson(CONST_POS_TOP);
+			break;
+		case 3:
+			game.movePerson(CONST_POS_BOT);
+			break;
+	}
+};
