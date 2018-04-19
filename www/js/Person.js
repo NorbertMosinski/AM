@@ -21,7 +21,7 @@ Person.prototype.setPos = function(pos)
 }
 
 /**
-Moves the person in the given direction by the given steps
+Moves the person in the given direction by the given count of steps.
 @param direction: The direction to move the person to
 @param steps: Number of steps the person will be moved by
 */
@@ -32,7 +32,7 @@ Person.prototype.move = function(direction, steps)
 }
 
 /**
-Updates the style settings in the html document, the visual representation of the person
+Updates the style settings in the html document, the visual representation of the person.
 */
 Person.prototype.updateViewStyle = function()
 {

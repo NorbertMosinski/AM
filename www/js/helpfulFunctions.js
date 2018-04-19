@@ -1,5 +1,5 @@
 /**
-Shows all containers of the main screen u want to switch to
+Shows all containers on the main screen u want to switch to.
 @param p_id_new: All containers beginning with this string will be shown, all others hidden
 */
 function changeMainScreenTo(p_id_new)
@@ -16,8 +16,9 @@ function changeMainScreenTo(p_id_new)
 }
 
 /**
-Returns the number value of a src like "200px"
-@return the number part
+Converts a string like "200px" to number.
+@param src: the source string
+@return the number
 */
 function pxToValue(src)
 {
@@ -25,14 +26,15 @@ function pxToValue(src)
 }
 
 /**
-Looks for a specific color in a line of the canvas context. If the start- and endposition are not in the same line, the function will be useless.
+Looks for a specific color in a line in the canvas context. 
+If the start- and endposition are not in the same line, the function will be useless.
 @param posBegin: the start position
 @param posEnd: the end position
 @param color: the color the function will be looking for
 @param context: the canvas context containing the drawn image 
 @return: the position of the color if found, null if not
 */
-function findColorInLine(posBegin, posEnd, color, context)
+function findSpecificColorInLine(posBegin, posEnd, color, context)
 {
 	for(var i = posBegin.x; i <= posEnd.x; i++)
 	{
@@ -40,23 +42,47 @@ function findColorInLine(posBegin, posEnd, color, context)
 		{
 			if(posEnd.y != 0)
 				//console.log("(" + i + "," + j + ")" + "r: " + context.getImageData(i, j, 1, 1).data[0] + " g:" + context.getImageData(i, j, 1, 1).data[1] + " b: " + context.getImageData(i, j, 1, 1).data[2]);
-			if(context.getImageData(i, j, 1, 1).data[0] == color.r 
-			&& context.getImageData(i, j, 1, 1).data[1] == color.g
-			&& context.getImageData(i, j, 1, 1).data[2] == color.b)
-			{
-
-				return new Position(i, j);
-			}
+				if(new Color(context.getImageData(i, j, 1, 1).data[0], context.getImageData(i, j, 1, 1).data[1], context.getImageData(i, j, 1, 1).data[2]).equals([color]))
+				{
+					return new Position(i, j);
+				}
 		}	
 	}
 	return null;
 }
 
 /**
-	returns the color of the canvas context at the given position
-	@param pos: the position
-	@param context: the canvas context
-	@return: the color at the given position
+Looks for a color in a line that is different from the passed color as an argument in the canvas context. 
+If the start- and endposition are not in the same line, the function will be useless.
+@param posBegin: the start position
+@param posEnd: the end position
+@param color: the function will look for a color diferent from this color
+@param context: the canvas context containing the drawn image 
+@return: the position of the color if found, null if not
+*/
+function findDifferentColorInLine(posBegin, posEnd, color, context)
+{
+	for(var i = posBegin.x; i <= posEnd.x; i++)
+	{
+		for(var j = posBegin.y; j <= posEnd.y; j++)
+		{
+			if(posEnd.y != 0)
+				//console.log("(" + i + "," + j + ")" + "r: " + context.getImageData(i, j, 1, 1).data[0] + " g:" + context.getImageData(i, j, 1, 1).data[1] + " b: " + context.getImageData(i, j, 1, 1).data[2]);
+				if(!(new Color(context.getImageData(i, j, 1, 1).data[0], context.getImageData(i, j, 1, 1).data[1], context.getImageData(i, j, 1, 1).data[2]).equals([color])))
+				{
+					return new Position(i, j);
+				}
+		}	
+	}
+	return null;
+}
+
+
+/**
+Gives the color of the canvas context at the given position.
+@param pos: the position
+@param context: the canvas context
+@return: the color at the given position
 */
 function imageDataToColor(pos, context)
 {
@@ -64,40 +90,13 @@ function imageDataToColor(pos, context)
 }
 
 /**
-Compares two colors.
-@param col1: first color to be compared
-@param col2: second color to be compared
-@return: true if equal, else false.
-*/
-function colorsEqual(col1, col2)
-{
-	if(col1.r == col2.r && col1.g == col2.g && col1.b == col2.b)
-		return true;
-	return false;
-}
-
-/**
-Compares two positions.
-@param pos1: first position to be compared
-@param pos2: second color to be compared
-@return: true if equal, else false.
-*/
-function positionsEqual(pos1, pos2)
-{
-	if(pos1.x == pos2.x && pos1.y == pos2.y)
-		return true;
-
-	return false;
-}
-
-/**
-Drawns an image on the given canvas context. Als sets the needed options.
+Draws an image on the given canvas context and sets the size of the canvas.
 @param src: the source of the image
 @param context: the context of the canvas
 */
 function drawImageOnCanvas(src, context)
 {
-	//initialize context of canvas
+	//set size of canvas
 	context.canvas.width = OPT_CANVAS_WIDTH;
 	context.canvas.height = OPT_CANVAS_HEIGHT;
 
@@ -132,7 +131,7 @@ function getVideo(id)
 }
 
 /**
-This function realizes a timer
+This function realizes a timer.
 @param duration: The timer duration
 @param display: the content where the timer will be displayed
 @return: the clock object
@@ -164,8 +163,8 @@ function startTimer(duration, display)
 Checks if 2 areas colidate with each other concerning their positions and hitboxes.
 @param o1: the first object
 @param o2: the second object
-@return true if the objects colidate, else false.
-NOTE: Each such object has to have an area
+@return true if the objects colidate, else false
+NOTE: Each such object passed to this function has to have an area.
 */
 function colision(a1, a2)
 {
@@ -187,7 +186,7 @@ function colision(a1, a2)
 }
 
 /**
-Calculates the index of an array with the minimum value
+Calculates the index of an array with the minimum value.
 @param array: the array containing the values
 @return the index of the array containing the minimum value 
 */

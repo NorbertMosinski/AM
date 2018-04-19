@@ -3,13 +3,15 @@ const OPT_MAZE_INITTOLERANCE = 0.1;
 //Number of steps to be done when moving the person
 const OPT_GAME_STEPS = 5;
 //Time limit for each level (min)
-const OPT_GAME_TIMELIMIT = 5.00;
+const OPT_GAME_TIMELIMIT = 3.00;
 //Person size x*x in px
 const OPT_PERSON_SIZE = 5;
 //Canvas width
 const OPT_CANVAS_WIDTH = 358;
 //Canvas height
 const OPT_CANVAS_HEIGHT = 615;
+//More performance, less quality
+const OPT_PERFORMANCEMODE = false;
 
 //Top direction
 const CONST_POS_TOP = new Position(0, -1);
