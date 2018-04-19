@@ -134,7 +134,7 @@ function navEvent(o)
 			changeMainScreenTo("P13");
 			setControlListeners();
 			}, 2000);
-			game.initLvl(game.curLvl);
+			game.initLvl(7);
 			break;
 		case 'P07_boton_volver':
 			changeMainScreenTo("P01");
