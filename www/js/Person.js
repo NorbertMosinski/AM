@@ -37,7 +37,7 @@ Moves the person in the given direction by the given count of steps.
 */
 Person.prototype.move = function(direction, steps)
 {
-	this.area.setPos(new Position(this.area.pos.x + (direction.x * steps), this.area.pos.y + (direction.y * steps)));
+	this.setPos(new Position(this.area.pos.x + (direction.x * steps), this.area.pos.y + (direction.y * steps)));
 }
 
 /**
